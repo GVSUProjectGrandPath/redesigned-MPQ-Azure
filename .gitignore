@@ -4,6 +4,4 @@ node_modules
 # Enviroment variables.
 .env
 
-# test
-
-# test 2
+*.txt
