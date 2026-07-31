@@ -71,8 +71,8 @@ button {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 10px;
-    padding-top: 60px;
+    gap: 1.11vh;
+    padding-top: 5vh;
 }
 
     .start-page-content h3 {
@@ -87,7 +87,7 @@ button {
         font-weight: 700;
         font-size: 4.8em;
         line-height: 0.9;
-        padding-top: 15px;
+        padding-top: 1.66vh;
     }
 
     .start-page-content h1 {
@@ -95,7 +95,7 @@ button {
         font-weight: 800;
         font-size: 5.875em;
         line-height: 0.9;
-        margin-bottom: 10px;
+        padding-bottom: 3.33vh;
     }
 
     .start-btn {
@@ -105,13 +105,205 @@ button {
         color: white;
         font-weight: 700;
         font-size: 3.9em;
-        padding: 30px 70px;
+        padding: 25px 70px;
         box-shadow: inset 0px 3.15px 15.75px 0px rgba(0, 0, 0, 0.3);
         transition: box-shadow 0.4s ease;
     }
 
     .start-btn:hover {
         box-shadow: inset 0px 3.15px 15.75px 0px rgba(0, 0, 0, 0.5);
+    }
+
+    .animal {
+        position: absolute;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    }
+
+    .bee {
+        z-index: 1;
+
+        width: 20.4vw;
+        height: auto;
+
+        bottom: 10vh;
+        left: 4.2vw;
+
+        animation: bee-jump 1.5s ease-in-out infinite;
+        animation-play-state: paused;
+    }
+
+    @keyframes bee-jump {
+        0% {transform: translateY(0)}
+        15% {transform: translateY(-2.22vh)}
+        25% {transform: translateY(1.11vh)}
+
+        /* animation ends at 35% the rest is just delay between jumping again */
+        35% {transform: translateY(0)}
+        100% {transform: translateY(0)}
+    }
+
+    .owl {
+        z-index: 5;
+
+        width: 13.3vw;
+        height: auto;
+
+        bottom: 7.5vh;
+        left: 15.3vw;
+
+        animation: owl-jump 1.5s ease-in-out infinite;
+        animation-play-state: paused;
+    }
+
+    @keyframes owl-jump {
+        0% {transform: translateY(0)}
+        15% {transform: translateY(-7.88vh)}
+        25% {transform: translateY(1.11vh)}
+
+        /* animation ends at 35% the rest is just delay between jumping again */
+        35% {transform: translateY(0)}
+        100% {transform: translateY(0)}
+    }
+
+    .armadillo {
+        z-index: 4;
+
+        width: 19.8vw;
+        height: auto;
+
+        bottom: 5vh;
+        left: 26vw;
+
+        animation: armadillo-jump 1.5s ease-in-out infinite;
+        animation-play-state: paused;
+    }
+
+    @keyframes armadillo-jump {
+        0% {transform: translateY(0)}
+        15% {transform: translateY(-3vh)}
+        25% {transform: translateY(1.11vh)}
+
+        /* animation ends at 35% the rest is just delay between jumping again */
+        35% {transform: translateY(0)}
+        100% {transform: translateY(0)}
+    }
+
+    .panda {
+       z-index: 3;
+
+       width: 14.8vw;
+       height: auto;
+
+       bottom: 4.2vh;
+       left: 40.8vw;
+
+       animation: panda-jump 1.5s ease-in-out infinite;
+       animation-play-state: paused;
+    }
+
+    @keyframes panda-jump {
+        0% {transform: translateY(0)}
+        15% {transform: translateY(-1.66vh)}
+        25% {transform: translateY(1.11vh)}
+
+        /* animation ends at 35% the rest is just delay between jumping again */
+        35% {transform: translateY(0)}
+        100% {transform: translateY(0)}
+    }
+
+    .squirrel {
+        z-index: 2;
+
+        width: 19.8vw;
+        height: auto;
+
+        bottom: 3.8vh;
+        left: 49.3vw;
+        
+        animation: squirrel-jump 1.5s ease-in-out infinite;
+        animation-play-state: paused;
+    }
+
+    @keyframes squirrel-jump {
+        0% {transform: translateY(0)}
+        15% {transform: translateY(-5.22vh)}
+        25% {transform: translateY(1.11vh)}
+
+        /* animation ends at 35% the rest is just delay between jumping again */
+        35% {transform: translateY(0)}
+        100% {transform: translateY(0)}
+    }
+
+    .poodle {
+        z-index: 1;
+
+        width: 22.0vw;
+        height: auto;
+
+        bottom: 4.7vh;
+        left: 59.3vw;
+
+        animation: poodle-jump 1.5s ease-in-out infinite;
+        animation-play-state: paused;
+        
+    }
+
+    @keyframes poodle-jump {
+        0% {transform: translateY(0)}
+        15% {transform: translateY(-1.88vh)}
+        25% {transform: translateY(1.11vh)}
+
+        /* animation ends at 35% the rest is just delay between jumping again */
+        35% {transform: translateY(0)}
+        100% {transform: translateY(0)}
+    }
+
+    .octopus {
+        z-index: 5;
+
+        width: 24.3vw;
+        height: auto;
+
+        bottom: 3vh;
+        left: 72.9vw;
+
+        animation: octopus-jump 1.5s ease-in-out infinite;
+        animation-play-state: paused;
+    }
+
+    @keyframes octopus-jump {
+        0% {transform: translateY(0)}
+        15% {transform: translateY(-2vh)}
+        25% {transform: translateY(1.11vh)}
+
+        /* animation ends at 35% the rest is just delay between jumping again */
+        35% {transform: translateY(0)}
+        100% {transform: translateY(0)}
+    }
+
+    .rabbit {
+        z-index: 1;
+
+        width: clamp(0px, 19vw, 300px);
+        height: auto;
+
+        bottom: 36vh;
+        left: 73.2vw;
+
+        animation: rabbit-jump 1.5s ease-in-out infinite;
+        animation-play-state: paused;
+
+        /* position: relative; */
+    }
+
+    @keyframes rabbit-jump {
+        0% {transform: translateY(0)}
+        15% {transform: translateY(-5.44vh)}
+        25% {transform: translateY(1.11vh)}
+
+        /* animation ends at 35% the rest is just delay between jumping again */
+        35% {transform: translateY(0)}
+        100% {transform: translateY(0)}
     }
 
 
