@@ -22,7 +22,6 @@ function screenChanges() {
         topBubbles.src = "./src/assets/Desktop Asset/SVG/SVG Quiz Cover/QuizCoverUpperBubbleDesktop.svg";
         bottomBubbles.src = "./src/assets/Desktop Asset/SVG/SVG Quiz Cover/QuizCoverLowerBubblesDesktop.svg";
         logo.src = "./src/assets/Desktop Asset/SVG/SVG Quiz Cover/QuizCoverDeskTopLogo.svg";
-
     }
 }
 screenChanges()
