@@ -24,7 +24,6 @@ function setAnimalJump (animal) {
         }
     });
 }
-
 animals.forEach(setAnimalJump);
 
 async function sleep(ms) {

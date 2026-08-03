@@ -71,21 +71,24 @@ button {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 1.11vh;
-    padding-top: 5vh;
+    gap: 1.2vh;
+    padding-top: calc(25vh - 10vw);
+    width: 70vw;
 }
 
     .start-page-content h3 {
         color: var(--purple);
         font-weight: 500;
-        font-size: 3.45em;
+        
+        font-size: clamp(1.7em, 4vw, 3.45em);
         line-height: 0.9;
     }
 
     .start-page-content h2 {
         color: black;
         font-weight: 700;
-        font-size: 4.8em;
+
+        font-size: clamp(2.4em, 5vw, 4.8em);
         line-height: 0.9;
         padding-top: 1.66vh;
     }
@@ -93,7 +96,8 @@ button {
     .start-page-content h1 {
         color: black;
         font-weight: 800;
-        font-size: 5.875em;
+
+        font-size: clamp(2.9em, 6vw, 5.875em);
         line-height: 0.9;
         padding-bottom: 3.33vh;
     }
@@ -101,11 +105,12 @@ button {
     .start-btn {
         background: linear-gradient(to top,  #6D1D59, #A12D84, #DC3EB5);
         border-radius: 1000000px;
+        z-index: 1;
 
         color: white;
         font-weight: 700;
-        font-size: 3.9em;
-        padding: 25px 70px;
+        font-size: clamp(1.9em, 4.5vw, 3.9em);
+        padding: 2vh 5vw;
         box-shadow: inset 0px 3.15px 15.75px 0px rgba(0, 0, 0, 0.3);
         transition: box-shadow 0.4s ease;
     }
@@ -113,6 +118,15 @@ button {
     .start-btn:hover {
         box-shadow: inset 0px 3.15px 15.75px 0px rgba(0, 0, 0, 0.5);
     }
+/* 
+    .animal-group {
+        position: relative;
+        height: 70vh;
+        width: 100vw;
+        margin-top: -22.3vh;
+
+        background-color: black;
+    } */
 
     .animal {
         position: absolute;
@@ -284,16 +298,14 @@ button {
     .rabbit {
         z-index: 1;
 
-        width: clamp(0px, 19vw, 300px);
+        width: 19vw;
         height: auto;
 
-        bottom: 36vh;
+        bottom: calc((30vw + 20vh)/2);
         left: 73.2vw;
 
         animation: rabbit-jump 1.5s ease-in-out infinite;
         animation-play-state: paused;
-
-        /* position: relative; */
     }
 
     @keyframes rabbit-jump {
@@ -305,5 +317,39 @@ button {
         35% {transform: translateY(0)}
         100% {transform: translateY(0)}
     }
+
+@media (max-width: 768px) {
+    .bee {
+
+    }
+
+    .owl {
+
+    }
+
+    .armadillo {
+
+    }
+
+    .panda {
+
+    }
+
+    .squirrel {
+
+    }
+
+    .poodle {
+
+    }
+
+    .octopus {
+        
+    }
+
+    .rabbit {
+        
+    }
+}
 
 
