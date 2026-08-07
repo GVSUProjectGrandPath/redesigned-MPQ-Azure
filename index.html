@@ -2,15 +2,27 @@
 <html lang="en">
 <head>
   <title>Money Personality Quiz</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=web_traffic" rel="stylesheet">
+
+  <!-- POPPINS FONT -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-  <link href="./src/css/styles.css" rel="stylesheet">
+  <!-- STYLES -->
+  <link href="./src/css/global-styles.css" rel="stylesheet">
+  <link href="./src/css/start-page.css" rel="stylesheet">
+  <link href="./src/css/quiz.css" rel="stylesheet">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="UTF-8">
 </head>
 
 <body>
   <!-- start-page  -->
-  <div id="start-page">
+  <div id="start-page" style="display: none;">
     <!-- start page bg -->
     <div class="start-page-svg-bg">
       <img class="top-bubbles" src="./src/assets/Desktop Asset/SVG/SVG Quiz Cover/QuizCoverUpperBubbleDesktop.svg">
@@ -36,7 +48,88 @@
     </div>
   </div>
 
-  <script src="./src/js/start-pages.js"></script>
+  <div class="QuizContainer">
+        <img class="QuizFinlitLogo" src="src\assets\Desktop Asset\SVG\SVG Quiz Cover\QuizCoverDeskTopLogo.svg" alt="Logo" class="logo">
+        
+        <div class="ProgressBarContainer">
+            <div class="ProgressBarTrack">
+                <div class="ProgressBarFill">
+                    <img src="src\assets\Desktop Asset\SVG\Bunny_progressbar.svg">
+                </div>
+            </div>
+            <div class="ProgressBarText">1/16</div>
+        </div>
+
+        <div class="AnimalIconContainer">
+            <img class="QuizAnimalBackground" src="src\assets\Desktop Asset\SVG\Animals_bubble.svg">
+            <img class="QuizAnimalIcon" src="src/assets/Desktop Asset/SVG/SVG Quiz Cover/Quiz Revamp_DesktopSVGanimals/Rectangle-1.svg">
+        </div>
+
+        <div class="QuestionsContainer">
+            <p class="QuestionText">I put all of my <b>excess income</b> in <b>savings</b> to grow slowly rather than <b>invest it</b> and risk losing it.</p>
+            
+            <!-- <div class="QuestionSlider">
+                <div class="SliderTrack"></div>
+                <div class="SliderFill">
+                    <div class="SliderButton">
+                        <img class="SliderStar" src="src\assets\Desktop Asset\SVG\Slider_button.svg">
+                        <img class="SliderArrow" src="src\assets\Desktop Asset\SVG\Arrow(1).svg">
+                    </div>
+                </div>
+            </div> -->
+
+            <div class="InputContainer">
+                <input type="range" id="slider" min="0" max="99" value="49" step="1" oninput="updateSliderFill()">
+
+                <div class="AnswerButtons">
+                    <div class="AnswerButton" id="1" onclick="answerButtonInput(this)">Strongly<br class="buttonNewLine"> Disagree</div>
+                    <div class="AnswerButton" id="2" onclick="answerButtonInput(this)">Disagree</div>
+                    <div class="AnswerButton active" id="3" onclick="answerButtonInput(this)">Neutral</div>
+                    <div class="AnswerButton" id="4" onclick="answerButtonInput(this)">Agree</div>
+                    <div class="AnswerButton" id="5" onclick="answerButtonInput(this)">Strongly<br class="buttonNewLine"> Agree</div>
+                </div>
+            </div>
+            
+            <img id="backBtn" src="src\assets\Desktop Asset\SVG\Back button.svg" onclick=(changeQuestion(this))>
+            <img id="nextBtn" src="src\assets\Desktop Asset\SVG\Next button.svg" onclick=(changeQuestion(this))>
+        </div>
+        <img class="bottomBubbles" src="src\assets\Desktop Asset\SVG\Footer.svg">
+    </div>
+    
+<!-- ===== End Pre-Results Modal Pushpa===== -->
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+
+  <!-- Firebase init (must come AFTER SDKs, BEFORE your app scripts) -->
+  <script>
+    (function initFirebase() {
+      const config = {
+        apiKey: "AIzaSyDLsfsDodVXkWHTErosKce1vZDRjZAh0Vo",
+        authDomain: "adventurequiz-622cc.firebaseapp.com",
+        projectId: "adventurequiz-622cc",
+        storageBucket: "adventurequiz-622cc.firebasestorage.app",
+        messagingSenderId: "525369177346",
+        appId: "1:525369177346:web:01264fb06b3f8746a6fe1b"
+      };
+      if (!firebase.apps.length) firebase.initializeApp(config);
+      window.db = firebase.firestore();
+    })();
+  </script>
+
+  <!-- Third-party libs your code uses -->
+  <script src="https://cdn.jsdelivr.net/npm/profanity-cleaner/dist/profanity-cleaner.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/validator@13.9.0/validator.min.js"></script>
+
+  <!-- Your app scripts (order matters if they depend on each other) -->
+    <!-- start page js -->
+    <script src="./src/js/start-page.js"></script>
+
+    <!-- <script src="/src/js/profanity.js"></script> -->
+    <script src="./src/js/personalities.js"></script>
+    <script src="./src/js/questions.js"></script>
+    <script src="./src/js/quiz.js"></script>
 </body>
 
 
