@@ -56,6 +56,11 @@ function setAnimalJump (animal) {
 }
 animals.forEach(setAnimalJump);
 
+function quizStart() {
+    document.querySelector(".QuizContainer").classList.add("active");
+    document.getElementById("start-page").classList.remove("active");
+}
+        
 async function sleep(ms) {
   await new Promise((resolve) => setTimeout(resolve, ms));
 }

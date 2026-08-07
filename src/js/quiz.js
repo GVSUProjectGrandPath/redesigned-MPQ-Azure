@@ -56,7 +56,8 @@ function changeQuestion(button) {
     }
     else if (button == backBtn) {
         if (currentQuestionIndex == 0) {
-            // go to title
+            document.querySelector(".QuizContainer").classList.remove("active");
+                document.getElementById("start-page").classList.add("active");
             return;
         }
 
@@ -138,24 +139,35 @@ async function answerButtonInput(button) {
 
     let finishValue = Math.max(Number(slider.min), Math.min(Number(slider.max), (button.id - 1) * 25 - 1));
     let startValue = Number(slider.value);
-    let steps = Math.abs(finishValue - startValue);
-    let t = Math.floor(100/steps);
+    let distance = Math.abs(finishValue - startValue);
+    console.log(distance);
+    let step = 1;
+    if (distance == 24 || distance == 25) {
+        step = 1;
+    } else if (distance == 49 || distance == 50) {
+        step = 2;
+    } else if (distance == 74 || distance == 75) {
+        step = 3;
+    } else if (distance == 99) {
+        step = 4;
+    }
+    let t = Math.floor(100/distance);
     //let t = 0;
     if (startValue > finishValue) {
         while (Number(slider.value) > finishValue) {
-            slider.value = Number(slider.value) - 1;
+            slider.value = Number(slider.value) - step;
             updateSliderFill();
             // let time = ((t - 1) ** 3 + 1); // function creates a value between 0 and 1, gets closer to 1 at the end
-            // t += 4/steps;
+            // t += 4/distance;
             // console.log(time);
             // await sleep(time);
-            await sleep(t);
+            await sleep(2);
         }
     } else if (startValue < finishValue) {
         while (Number(slider.value) < finishValue) {
-            slider.value = Number(slider.value) + 1;
+            slider.value = Number(slider.value) + step;
             updateSliderFill();
-            await sleep(t);
+            await sleep(2);
         }
     }
 

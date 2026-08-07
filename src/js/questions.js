@@ -527,7 +527,7 @@ const questions = [
   },
   {
     "id": 15,
-    "value": "When I <b>lose money</b>, it really <b>gets me down</b> and messes with my emotions. I feel the urge to <b>bounce back fast</b> from these losses, both for my money and mental health.",
+    "value": "When I <b>lose money</b>, it really messes with my emotions. I feel the urge to <b>bounce back fast</b> from these losses, financially and mentally.",
     "image": "src/assets/Desktop Asset/SVG/SVG Quiz Cover/Quiz Revamp_DesktopSVGanimals/Rectangle-1.svg",
     "points": {
       "sa": {

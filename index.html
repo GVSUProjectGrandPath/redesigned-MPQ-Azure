@@ -22,7 +22,7 @@
 
 <body>
   <!-- start-page  -->
-  <div id="start-page">
+  <div id="start-page" class="active">
     <!-- start page bg -->
     <div class="start-page-svg-bg">
       <img class="top-bubbles" src="./src/assets/Desktop Asset/SVG/SVG Quiz Cover/QuizCoverUpperBubbleDesktop.svg">
@@ -35,7 +35,7 @@
       <h3>BEGIN THE QUEST</h3>
       <h2>DISCOVER YOUR</h2>
       <h1>MONEY MINDSET</h1>
-      <button class="start-btn">GET STARTED</button>
+      <button class="start-btn" onclick="quizStart()">GET STARTED</button>
       <!-- animals  -->
         <img class="squirrel animal" src="./src/assets/Desktop Asset/SVG/SVG Quiz Cover/Quiz Revamp_DesktopSVGanimals/Rectangle-1.svg">
         <img class="bee animal" src="./src/assets/Desktop Asset/SVG/SVG Quiz Cover/Quiz Revamp_DesktopSVGanimals/Rectangle-2.svg">
@@ -49,52 +49,42 @@
   </div>
 
   <div class="QuizContainer">
-        <img class="QuizFinlitLogo" src="src\assets\Desktop Asset\SVG\SVG Quiz Cover\QuizCoverDeskTopLogo.svg" alt="Logo" class="logo">
-        
-        <div class="ProgressBarContainer">
-            <div class="ProgressBarTrack">
-                <div class="ProgressBarFill">
-                    <img src="src\assets\Desktop Asset\SVG\Bunny_progressbar.svg">
-                </div>
-            </div>
-            <div class="ProgressBarText">1/16</div>
-        </div>
+      <img class="QuizFinlitLogo" src="src\assets\Desktop Asset\SVG\SVG Quiz Cover\QuizCoverDeskTopLogo.svg" alt="Logo" class="logo">
+      
+      <div class="ProgressBarContainer">
+          <div class="ProgressBarTrack">
+              <div class="ProgressBarFill">
+                  <img src="src\assets\Desktop Asset\SVG\Bunny_progressbar.svg">
+              </div>
+          </div>
+          <div class="ProgressBarText">1/16</div>
+      </div>
 
-        <div class="AnimalIconContainer">
-            <img class="QuizAnimalBackground" src="src\assets\Desktop Asset\SVG\Animals_bubble.svg">
-            <img class="QuizAnimalIcon" src="src/assets/Desktop Asset/SVG/SVG Quiz Cover/Quiz Revamp_DesktopSVGanimals/Rectangle-1.svg">
-        </div>
+      <div class="AnimalIconContainer">
+          <img class="QuizAnimalBackground" src="src\assets\Desktop Asset\SVG\Animals_bubble.svg">
+          <img class="QuizAnimalIcon" src="src/assets/Desktop Asset/SVG/SVG Quiz Cover/Quiz Revamp_DesktopSVGanimals/Rectangle-1.svg">
+      </div>
 
-        <div class="QuestionsContainer">
-            <p class="QuestionText">I put all of my <b>excess income</b> in <b>savings</b> to grow slowly rather than <b>invest it</b> and risk losing it.</p>
+      <div class="QuestionsContainer">
+          <p class="QuestionText">I put all of my <b>excess income</b> in <b>savings</b> to grow slowly rather than <b>invest it</b> and risk losing it.</p>
+
+          <div class="InputContainer">
+              <input type="range" id="slider" min="0" max="99" value="49" step="1" oninput="updateSliderFill()">
+
+              <div class="AnswerButtons">
+                  <div class="AnswerButton" id="1" onclick="answerButtonInput(this)">Strongly<br class="buttonNewLine"> Disagree</div>
+                  <div class="AnswerButton" id="2" onclick="answerButtonInput(this)">Disagree</div>
+                  <div class="AnswerButton active" id="3" onclick="answerButtonInput(this)">Neutral</div>
+                  <div class="AnswerButton" id="4" onclick="answerButtonInput(this)">Agree</div>
+                  <div class="AnswerButton" id="5" onclick="answerButtonInput(this)">Strongly<br class="buttonNewLine"> Agree</div>
+              </div>
+          </div>
             
-            <!-- <div class="QuestionSlider">
-                <div class="SliderTrack"></div>
-                <div class="SliderFill">
-                    <div class="SliderButton">
-                        <img class="SliderStar" src="src\assets\Desktop Asset\SVG\Slider_button.svg">
-                        <img class="SliderArrow" src="src\assets\Desktop Asset\SVG\Arrow(1).svg">
-                    </div>
-                </div>
-            </div> -->
-
-            <div class="InputContainer">
-                <input type="range" id="slider" min="0" max="99" value="49" step="1" oninput="updateSliderFill()">
-
-                <div class="AnswerButtons">
-                    <div class="AnswerButton" id="1" onclick="answerButtonInput(this)">Strongly<br class="buttonNewLine"> Disagree</div>
-                    <div class="AnswerButton" id="2" onclick="answerButtonInput(this)">Disagree</div>
-                    <div class="AnswerButton active" id="3" onclick="answerButtonInput(this)">Neutral</div>
-                    <div class="AnswerButton" id="4" onclick="answerButtonInput(this)">Agree</div>
-                    <div class="AnswerButton" id="5" onclick="answerButtonInput(this)">Strongly<br class="buttonNewLine"> Agree</div>
-                </div>
-            </div>
-            
-            <img id="backBtn" src="src\assets\Desktop Asset\SVG\Back button.svg" onclick=(changeQuestion(this))>
-            <img id="nextBtn" src="src\assets\Desktop Asset\SVG\Next button.svg" onclick=(changeQuestion(this))>
-        </div>
-        <img class="bottomBubbles" src="src\assets\Desktop Asset\SVG\Footer.svg">
-    </div>
+          <img id="backBtn" src="src\assets\Desktop Asset\SVG\Back button.svg" onclick=(changeQuestion(this))>
+          <img id="nextBtn" src="src\assets\Desktop Asset\SVG\Next button.svg" onclick=(changeQuestion(this))>
+      </div>
+      <img class="bottomBubbles" src="src\assets\Desktop Asset\SVG\Footer.svg">
+  </div>
     
 <!-- ===== End Pre-Results Modal Pushpa===== -->
 
@@ -131,8 +121,5 @@
     <script src="./src/js/questions.js"></script>
     <script src="./src/js/quiz.js"></script>
 </body>
-
-
-
 
 </html>

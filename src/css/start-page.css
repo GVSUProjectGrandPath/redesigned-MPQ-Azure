@@ -1,6 +1,9 @@
 #start-page {
-    display: flex;
+    display: none;
     justify-content: center;
+}
+#start-page.active {
+    display: flex;
 }
 
 .start-page-svg-bg {
