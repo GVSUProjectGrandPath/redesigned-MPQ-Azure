@@ -1,0 +1,92 @@
+<style>
+  .slider-container {
+  position: relative;
+  width: 300px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+
+/* Hide the native thumb, but keep the input clickable */
+#real-slider {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.slider-track {
+  position: absolute;
+  width: 100%;
+  height: 6px;
+  background: #e0e0e0;
+  border-radius: 3px;
+  z-index: 1;
+}
+
+/* This is the thumb that will ease and tween */
+.slider-thumb {
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  width: 20px;
+  height: 20px;
+  background: #007bff;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none; /* Let clicks pass through to the real input */
+  z-index: 2;
+}
+
+</style>
+
+
+
+
+<div class="slider-container">
+  <!-- The invisible real input that handles interactions -->
+  <input type="range" id="real-slider" min="0" max="4" value="0">
+  
+  <!-- The custom visual track and thumb -->
+  <div class="slider-track">
+    <div id="visual-thumb" class="slider-thumb"></div>
+  </div>
+</div>
+
+
+
+<script>
+  const realSlider = document.getElementById('real-slider');
+  const visualThumb = document.getElementById('visual-thumb');
+
+  let currentPos = 0; // Where the visual thumb currently is (0 to 100)
+  let targetPos = 0;  // Where the user has dragged the real slider
+
+  // Lower = smoother/slower catch up. Higher = snappier.
+  const EASE_FACTOR = 0.15; 
+
+  // Update the target whenever the user drags
+  realSlider.addEventListener('input', (e) => {
+    targetPos = parseFloat(e.target.value);
+  });
+
+  // Animation loop
+  function animate() {
+    // Linear Interpolation formula: Current + (Target - Current) * Ease
+    currentPos += (targetPos - currentPos) * EASE_FACTOR;
+
+    // Move the visual thumb using CSS percentages
+    visualThumb.style.left = `${currentPos}%`;
+
+    // Optional: If you need to trigger actions based on the eased value
+    // doItWithEasedValue(currentPos);
+
+    requestAnimationFrame(animate);
+  }
+
+  // Start the loop
+  requestAnimationFrame(animate);
+
+</script>

@@ -12,7 +12,7 @@
     /* justify-content: center;
     align-items: center; */
     color: #ffffff;
-    background-color: #b4efff; 
+    background: linear-gradient(to bottom, #e1fbfb, #6ed8ff);
     /* background-color: #d3f6ff; */
     overflow-y: scroll; /* Enable vertical scrolling */
     overflow-x: hidden; /* Prevent horizontal scrolling */
