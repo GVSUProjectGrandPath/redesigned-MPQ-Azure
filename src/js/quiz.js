@@ -148,26 +148,26 @@ async function answerButtonInput(button) {
         step = 2;
     } else if (distance == 74 || distance == 75) {
         step = 3;
-    } else if (distance == 99) {
-        step = 4;
+    } else if (distance > 90) {
+        step = 3.75;
     }
-    let t = Math.floor(100/distance);
+    let t = 0;
     //let t = 0;
     if (startValue > finishValue) {
         while (Number(slider.value) > finishValue) {
-            slider.value = Number(slider.value) - step;
+            slider.value = Number(slider.value) - 1;
             updateSliderFill();
-            // let time = ((t - 1) ** 3 + 1); // function creates a value between 0 and 1, gets closer to 1 at the end
-            // t += 4/distance;
-            // console.log(time);
-            // await sleep(time);
-            await sleep(2);
+            let time = ((t - 1) ** 3 + 1)/step; // function creates a value between 0 and 1, gets closer to 1 at the end
+            t += 0.2/step;
+            await sleep(time);
         }
     } else if (startValue < finishValue) {
         while (Number(slider.value) < finishValue) {
-            slider.value = Number(slider.value) + step;
+            slider.value = Number(slider.value) + 1;
             updateSliderFill();
-            await sleep(2);
+            let time = ((t - 1) ** 3 + 1)/step; // function creates a value between 0 and 1, gets closer to 1 at the end
+            t += 0.2/step;
+            await sleep(time);
         }
     }
 
