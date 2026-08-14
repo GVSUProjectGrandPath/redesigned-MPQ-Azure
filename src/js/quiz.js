@@ -90,7 +90,12 @@ function updateSliderFill() {
     let min, max;
     if (isPortrait) {
         min = -15;
-        max = 115;
+        if (slider.value == 99) {
+            max = 99;
+        } 
+        else {
+            max = 115;
+        }
     } else {
         min = -2.5;
         max = slider.max || 90;
