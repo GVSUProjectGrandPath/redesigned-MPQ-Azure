@@ -30,11 +30,15 @@ const QuestionText = document.querySelector('.QuestionText');
 // Next and Back Button
 function changeQuestion(button) {
     if (button == nextBtn) {
-        if (currentQuestionIndex == 15) {
-            calculatePoints();
-            // end quiz
-            return;
-        }
+
+    // Always save the current answer first
+    selectedAnswers[currentQuestionIndex] = slider.value;
+
+    if (currentQuestionIndex == 15) {
+        calculatePoints();
+        showResultsPage();
+        return;
+    }
         
         // save answer
         selectedAnswers[currentQuestionIndex] = slider.value;
@@ -185,17 +189,46 @@ async function answerButtonInput(button) {
 
 const pointskey = ['sd', 'd', 'n', 'a', 'sa'];
 
-// Calculate results
 function calculatePoints() {
-    let index = 0;
-    for (const value in selectedAnswers) {
-        const answer = pointskey[value];
+
+    // Reset totals first so results don't double-count
+    for (const type in totalPoints) {
+        totalPoints[type] = 0;
+    }
+
+    selectedAnswers.forEach((sliderValue, index) => {
+
+        const value = Number(sliderValue);
+
+        let answerIndex;
+
+        if (value >= 0 && value < 15) {
+            answerIndex = 0;
+        } 
+        else if (value >= 15 && value < 40) {
+            answerIndex = 1;
+        } 
+        else if (value >= 40 && value < 60) {
+            answerIndex = 2;
+        } 
+        else if (value >= 60 && value < 85) {
+            answerIndex = 3;
+        } 
+        else {
+            answerIndex = 4;
+        }
+
+        const answer = pointskey[answerIndex];
+
         const question = questions[index];
         const newPoints = question.points[answer];
+
         for (const key in newPoints) {
             if (totalPoints.hasOwnProperty(key)) {
                 totalPoints[key] += newPoints[key];
             }
         }
-    }
+    });
+
+    console.log("Final points:", totalPoints);
 }

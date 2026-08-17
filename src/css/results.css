@@ -1,0 +1,13 @@
+.ResultsContainer {
+    display: none;
+    min-height: 100vh;
+    width: 100%;
+    background: white;
+    color: black;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+.ResultsContainer.active {
+    display: block;
+}
