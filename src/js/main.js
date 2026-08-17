@@ -1112,14 +1112,14 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       const resultImage = document.getElementById("polaroid-animal-image");
       const imageMap = {
-        "saver": "/src/assets/animal_pngs/polaroid/past_squirrel.png",
-        "lavish": "/src/assets/animal_pngs/polaroid/past_poodle.png",
-        "investor": "/src/assets/animal_pngs/polaroid/past_owl.png",
-        "hustler": "/src/assets/animal_pngs/polaroid/past_bee.png",
-        "risk-taker": "/src/assets/animal_pngs/polaroid/past_rabbit.png",
-        "defensive": "/src/assets/animal_pngs/polaroid/past_armadillo.png",
-        "shopper": "/src/assets/animal_pngs/polaroid/past_octopus.png",
-        "indifferent": "/src/assets/animal_pngs/polaroid/past_panda.png"
+        "saver": "/src/assets/Animal_resultbar/Squirrel_Result.png",
+        "lavish": "/src/assets/Animal_resultbar/Poodle_Result.png",
+        "investor": "/src/assets/Animal_resultbar/Owl_Result.png",
+        "hustler": "/src/assets/Animal_resultbar/Bee_Result.png",
+        "risk-taker": "/src/assets/Animal_resultbar/Rabbit_Result.png",
+        "defensive": "/src/assets/Animal_resultbar/Armadillo_Result.png",
+        "shopper": "/src/assets/Animal_resultbar/Octopus_Result.png",
+        "indifferent": "/src/assets/Animal_resultbar/Panda_Result.png"
       };
 
       if (resultImage) {

@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="\src\css\newstyle.css">
     <link rel="stylesheet" href="\src\css\portaitStyles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=web_traffic" />
-  
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black"> -->
@@ -99,22 +99,25 @@
         </div>
         <!-- pawan code  -->
         <div id="result-container" style="display: none; background: linear-gradient(rgb(197 239 250) 0%, rgb(255, 255, 255) 50%, rgb(186 240 255) 100%);">
-            <p id="result-header"></p>
-         <div id="result-grid">
+            
+		<span id="scrollTextHeader" style="display: inline-block;"></span></p>
+         <div id="result-grid">      
             <div id="result-section1">
-                <img src="/src/assets/polaroid_camera1.png" id="result">
-                <img src="/src/assets/animal_pngs/squirrel.png" id="polaroid-animal-image" alt="Personality Animal Image">
+                <img src="/src/assets/Animal_resultbar/Squirrel_Result.png" id="polaroid-animal-image" alt="Personality Animal Image">
+                <p id="result-header"></p>
+                
             </div> 
-            <div class="scroll-arrow1">&#8595;</div>
-            <div id="scroll-down-text1">Scroll down to view more</div>
 
-           <div id="result-section2">
-            <pre id="detailed-results"></pre>    
 
            </div>
+        <div id="result-section2">
+          
+          <pre id="detailed-results"></pre>  
+           
          </div>
          <div id="scroll-down-text">Scroll down to view the description</div>
          <div class="scroll-arrow">&#8595;</div>
+         <img src="src/assets/Desktop Asset/SVG/Footer.svg" id="result-footer">
          <!-- pawan code  -->
         
             <!-- <pre id="detailed-results"></pre> -->
@@ -441,6 +444,7 @@
   <script src="/src/js/questions.js"></script>
   <script src="/src/js/main.js"></script>
 </body>
+
 
 
 </html>

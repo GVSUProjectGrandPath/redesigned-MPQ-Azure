@@ -12,6 +12,7 @@
   animation: changeColor 0.3s forwards;
 } */
 
+
 #downloadResultsBtn {
   background: #0070f3; /* Replace with your brand color */
   color: #fff;
@@ -613,6 +614,14 @@ textarea#userInput:focus {
 #feedback-form textarea {
   height: 100px; /* Maintain height for comments */
 }
+/* Hide old result-description artwork */
+.topsection .image {
+  display: none;
+}
+
+.animal_assets {
+  display: none;
+}
 
 #userCommentBtn {
   /* all: unset; */
@@ -783,6 +792,7 @@ textarea#userInput:focus {
   height: 100%;
   width: 100%;
   margin-top:-50px;
+
 } */
 
 /* #result {
