@@ -1,13 +1,716 @@
+/* =========================================================
+   RESULTS PAGE
+   ========================================================= */
+
 .ResultsContainer {
-    display: none;
-    min-height: 100vh;
-    width: 100%;
-    background: white;
-    color: black;
-    padding: 40px;
-    box-sizing: border-box;
+  display: none;
+
+  height: 100vh;
+  width: 100%;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  background: linear-gradient(
+    to bottom,
+    #c5effa 0%,
+    #ffffff 50%,
+    #baf0ff 100%
+  );
+
+  color: #000;
+
+  box-sizing: border-box;
 }
 
 .ResultsContainer.active {
-    display: block;
+  display: block;
+}
+
+.ResultsContainer.active {
+  display: block;
+}
+
+.ResultsFinlitLogo {
+  width: 140px;
+  margin: 20px 0 0 30px;
+}
+
+
+/* =========================================================
+   TOP RESULTS SECTION
+   ========================================================= */
+
+.results-top {
+  position: relative;
+  min-height: 100vh;
+  padding-top: 20px;
+  box-sizing: border-box;
+}
+
+.results-summary {
+  width: 100%;
+  max-width: 1100px;
+  margin: 50px auto 0;
+}
+
+
+/* Winner animal + brown banner */
+/* =========================================================
+   WINNER RESULT GRAPHIC
+   ========================================================= */
+
+#result-section1 {
+  position: relative;
+
+  width: 620px;
+  max-width: 75vw;
+
+  margin: 25px auto 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 3;
+}
+
+
+/*
+  Squirrel_Result.png already contains:
+  animal + yellow bubble + brown banner + acorns
+*/
+#polaroid-animal-image {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  object-fit: contain;
+}
+
+
+/* Put the dynamic text ON TOP of the brown banner in the PNG */
+#result-header {
+  position: absolute;
+
+  left: 50%;
+  bottom: 15%;
+
+  transform: translateX(-50%);
+
+  width: 78%;
+
+  margin: 0;
+  padding: 0;
+
+  background: transparent;
+
+  color: white;
+
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(1.1rem, 1.8vw, 1.65rem);
+  font-weight: 700;
+
+  text-align: center;
+
+  z-index: 5;
+}
+
+/* =========================================================
+   RESULT PERCENTAGE PANEL
+   ========================================================= */
+
+#result-section2 {
+  position: relative;
+
+  width: 76%;
+  max-width: 980px;
+
+  margin: -55px auto 0;
+
+  padding: 80px 50px 25px;
+
+  background: #d7f3ee;
+
+  border-radius: 42px;
+
+  box-sizing: border-box;
+
+  z-index: 1;
+}
+
+#detailed-results {
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  column-gap: 55px;
+  row-gap: 22px;
+
+  width: 100%;
+}
+
+.result-score-button {
+  position: relative;
+
+  width: 100%;
+
+  min-height: 52px;
+
+  border: none;
+  border-radius: 4vw;
+
+  background: #FEDB04;
+  color: #000;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 10px 24px;
+
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+
+  box-sizing: border-box;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.result-score-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.12);
+}
+
+.result-score-button.active {
+  background: #54c9cd;
+  font-weight: 700;
+}
+
+.result-score-text {
+  flex: 1;
+  text-align: left;
+}
+
+.result-eye {
+  margin-left: 14px;
+  font-size: 1.3rem;
+}
+
+
+/* =========================================================
+   SCROLL MESSAGE
+   ========================================================= */
+
+.results-scroll-prompt {
+  text-align: center;
+  margin: 25px 0 10px;
+}
+
+#scroll-down-text {
+  color: #b41a8a;
+  font-weight: 700;
+  font-size: 1.15rem;
+}
+
+.scroll-arrow {
+  margin-top: 6px;
+
+  font-size: 2.8rem;
+  color: #ffd900;
+
+  text-shadow:
+    -1px -1px 2px rgba(46, 101, 103, 0.4),
+    1px -1px 2px rgba(46, 101, 103, 0.4),
+    -1px 1px 2px rgba(46, 101, 103, 0.4),
+    1px 1px 2px rgba(46, 101, 103, 0.4);
+
+  animation: moveArrow 2s infinite ease-in-out;
+}
+
+@keyframes moveArrow {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(10px);
+  }
+}
+
+#result-footer {
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  display: block;
+  margin-top: -100px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   DESCRIPTION PANEL
+   ========================================================= */
+
+.desc-container {
+  width: 84%;
+  max-width: 1100px;
+
+  margin: 60px auto 90px;
+
+  padding: 70px 75px 75px;
+
+  background: #eefafd;
+
+  border-radius: 45px;
+
+  box-sizing: border-box;
+
+  color: #000;
+}
+
+.topsection {
+  display: block;
+
+  padding: 0;
+
+  margin: 0 0 80px 0;
+}
+
+.topsection .image {
+  display: none;
+}
+
+.description {
+  background: transparent;
+
+  border: none;
+
+  padding: 0;
+  margin: 0;
+}
+
+.description_h2 {
+  color: #000;
+
+  font-weight: 700;
+
+  font-size: 1.15rem;
+}
+
+#descriptionText {
+  color: #000;
+
+  font-size: 1rem;
+  line-height: 1.55;
+
+  margin-top: 18px;
+}
+
+
+/* =========================================================
+   FOUR DETAIL CARDS
+   ========================================================= */
+
+#second-section {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, auto);
+
+  column-gap: 50px;
+  row-gap: 70px;
+
+  position: relative;
+
+  padding: 0;
+}
+
+.advantages,
+.disadvantages,
+.motivators,
+.demotivators {
+  grid-area: auto;
+}
+
+.advantages {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.disadvantages {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.motivators {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.demotivators {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+#second-section > div {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.card {
+  position: relative;
+
+  width: 100%;
+
+  min-height: 180px;
+
+  padding: 55px 35px 30px;
+
+  background: #c6f0fa !important;
+
+  border: none;
+
+  border-radius: 28px;
+
+  box-sizing: border-box;
+
+  color: #000;
+}
+
+.blue,
+.red {
+  background: #c6f0fa !important;
+}
+
+.card .description_h2 {
+  display: block;
+
+  text-align: center;
+
+  font-size: 1rem;
+  font-weight: 700;
+
+  margin-bottom: 14px;
+}
+
+.card ul {
+  margin: 15px 0 0;
+
+  padding-left: 22px;
+
+  list-style: disc outside;
+}
+
+.card ul li {
+  text-align: left;
+
+  color: #000;
+
+  font-size: 0.95rem;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   CARD ICONS
+   ========================================================= */
+
+.card::before {
+  content: "";
+
+  position: absolute;
+
+  top: -32px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 64px;
+  height: 64px;
+
+  background-repeat: no-repeat;
+
+  background-position: center;
+
+  background-size: contain;
+
+  z-index: 5;
+}
+
+.advantages::before {
+  background-image:
+    url("../assets/Desktop Asset/PNG/Advantages.png");
+}
+
+.disadvantages::before {
+  background-image:
+    url("../assets/Desktop Asset/PNG/Disadvantages.png");
+}
+
+.motivators::before {
+  background-image:
+    url("../assets/Desktop Asset/PNG/Motivators.png");
+}
+
+.demotivators::before {
+  background-image:
+    url("../assets/Desktop Asset/PNG/Demotivators.png");
+}
+
+
+/* old center icon not used in the Figma design */
+.animal_assets {
+  display: none !important;
+}
+
+
+/* =========================================================
+   RESULTS BUTTONS
+   ========================================================= */
+
+.buttons {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  gap: 12px;
+
+  width: 100%;
+
+  margin: 60px auto 0;
+
+  padding: 0;
+}
+
+.buttons button {
+  min-width: 150px;
+
+  padding: 13px 22px;
+
+  border: none;
+
+  border-radius: 9px;
+
+  font-family: "Poppins", sans-serif;
+
+  font-size: 0.9rem;
+
+  font-weight: 700;
+
+  box-shadow: none;
+
+  cursor: pointer;
+}
+
+
+/* Feedback */
+
+#feedback-button {
+  order: 1;
+
+  background: #ffd400;
+
+  color: #000;
+}
+
+
+/* Restart */
+
+#restart-button {
+  order: 2;
+
+  background: #08b896;
+
+  color: #fff;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 8px;
+}
+
+#restart-button::before {
+  content: "\f2f9";
+
+  font-family: "Font Awesome 6 Free";
+
+  font-weight: 900;
+
+  font-size: 0.95rem;
+}
+
+
+/* Download */
+
+#downloadResultsBtn {
+  order: 3;
+
+  background: #ff6464;
+
+  color: #fff;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 8px;
+
+  margin: 0;
+}
+
+#downloadResultsBtn::before {
+  content: "\f019";
+
+  font-family: "Font Awesome 6 Free";
+
+  font-weight: 900;
+
+  font-size: 0.95rem;
+}
+
+
+/* Next steps */
+
+#next-steps-button {
+  order: 4;
+
+  background: #c52086;
+
+  color: #fff;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+  .ResultsFinlitLogo {
+    width: 105px;
+
+    margin: 15px 0 0 18px;
+  }
+
+
+  #result-section1 {
+    width: 78%;
+    
+    padding-top: 120px;
+  }
+
+
+  #polaroid-animal-image {
+    width: 200px;
+  }
+
+
+  #result-header {
+    min-height: 100px;
+
+    padding: 18px 45px;
+
+    font-size: 1.1rem;
+  }
+
+
+  #result-header::before,
+  #result-header::after {
+    width: 60px;
+    height: 60px;
+  }
+
+
+  #result-header::before {
+    left: -35px;
+  }
+
+
+  #result-header::after {
+    right: -35px;
+  }
+
+
+  #result-section2 {
+    width: 88%;
+
+    padding: 115px 30px 55px;
+
+    margin-top: -50px;
+  }
+
+
+  #detailed-results {
+    grid-template-columns: 1fr;
+
+    row-gap: 15px;
+  }
+
+
+  .desc-container {
+    width: 90%;
+
+    padding: 60px 30px 55px;
+  }
+
+
+  #second-section {
+    grid-template-columns: 1fr;
+
+    row-gap: 65px;
+  }
+
+
+  .advantages,
+  .disadvantages,
+  .motivators,
+  .demotivators {
+    grid-column: 1;
+  }
+
+
+  .advantages {
+    grid-row: 1;
+  }
+
+
+  .disadvantages {
+    grid-row: 2;
+  }
+
+
+  .motivators {
+    grid-row: 3;
+  }
+
+
+  .demotivators {
+    grid-row: 4;
+  }
+
+
+  .buttons {
+    flex-wrap: wrap;
+  }
+
+
+  .buttons button {
+    min-width: 140px;
+  }
 }

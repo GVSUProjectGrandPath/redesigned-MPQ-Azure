@@ -6,3 +6,7 @@ node_modules
 
 *.txt
 .DS_Store
+
+old-index.html
+old-main.js
+old-styles.css

@@ -164,10 +164,206 @@
 
 
 <!-- RESULTS PAGE MUST BE OUTSIDE QuizContainer -->
+<!-- =========================
+     RESULTS PAGE
+========================= -->
 <div class="ResultsContainer">
-    <h1>Results Page</h1>
-    <p id="debug-results"></p>
+
+  <!-- ===== TOP RESULTS SECTION ===== -->
+  
+
+
+    <!-- Winner + percentages -->
+    <div class="results-summary">
+      
+
+      <!-- Winning personality -->
+      <div id="result-section1">
+
+        <img
+          id="polaroid-animal-image"
+          src="./src/assets/Animal_resultbar/Squirrel_Result.png"
+          alt="Personality Animal"
+        >
+
+        <p id="result-header"></p>
+
+      </div>
+
+
+      <!-- All personality percentages -->
+      <div id="result-section2">
+
+        <div id="detailed-results"></div>
+
+      </div>
+
+      
+
+    </div>
+    
+
+
+    <!-- Scroll message -->
+    <div class="results-scroll-prompt">
+
+      <div id="scroll-down-text">
+        Scroll down to view the description
+      </div>
+
+      <div class="scroll-arrow">
+        &#8595;
+      </div>
+
+    </div>
+
+
+
+    <!-- Decorative footer -->
+    
+
+  </section>
+
+
+  <!-- ===== PERSONALITY DETAILS ===== -->
+  <section class="desc-container">
+
+    <!-- Description -->
+    <div class="topsection">
+
+      <div class="image">
+
+        <img
+          id="desc-animal-image"
+          src="./src/assets/animal_pngs/futureAnimal_Profiles/Future_Squirrel.png"
+          alt="Personality Animal"
+        >
+
+      </div>
+
+
+      <div class="description">
+
+        <span class="description_h2">
+          Description
+        </span>
+
+        <p id="descriptionText"></p>
+
+      </div>
+
+    </div>
+
+
+    <!-- ===== FOUR DETAIL CARDS ===== -->
+    <div id="second-section">
+
+
+      <!-- Advantages -->
+      <div class="advantages card blue">
+
+        <span class="description_h2">
+          Advantages
+        </span>
+
+        <ul id="advantagesList"></ul>
+
+      </div>
+
+
+      <!-- Disadvantages -->
+      <div class="disadvantages card red">
+
+        <span class="description_h2">
+          Disadvantages
+        </span>
+
+        <ul id="disadvantagesList"></ul>
+
+      </div>
+
+
+      <!-- Motivators -->
+      <div class="motivators card blue">
+
+        <span class="description_h2">
+          Motivators
+        </span>
+
+        <ul id="motivatorsList"></ul>
+
+      </div>
+
+
+      <!-- Demotivators -->
+      <div class="demotivators card red">
+
+        <span class="description_h2">
+          Demotivators
+        </span>
+
+        <ul id="demotivatorsList"></ul>
+
+      </div>
+
+
+      <!-- Decorative personality asset -->
+      <span class="animal_assets">
+
+        <img
+          id="personality-icon"
+          src=""
+          alt="Personality Icon"
+        >
+
+      </span>
+
+    </div>
+
+
+    <!-- ===== RESULT ACTIONS ===== -->
+    <div class="buttons">
+
+      <button
+        id="next-steps-button"
+        class="results-btn"
+      >
+        Next Steps
+      </button>
+
+
+      <button
+        id="downloadResultsBtn"
+        class="results-btn"
+      >
+        Download Results
+      </button>
+
+
+      <button
+        id="restart-button"
+        class="results-btn restart"
+      >
+        Restart Quiz
+      </button>
+
+
+      <button
+        id="feedback-button"
+        class="results-btn feedback"
+      >
+        Give Feedback
+      </button>
+
+    </div>
+
+  </section>
+  <img id="result-footer" src="./src/assets/Desktop Asset/PNG/Footer.png" alt="">
+
 </div>
+<!-- =========================
+     END RESULTS PAGE
+========================= -->
     
 <!-- ===== End Pre-Results Modal Pushpa===== -->
 
