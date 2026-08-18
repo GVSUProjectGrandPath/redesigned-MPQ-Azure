@@ -142,92 +142,84 @@ function showResults() {
 
         detailedResults.innerHTML = "";
 
-        sortedTypes.forEach(
-            ({ type, percentage }) => {
+        sortedTypes.forEach(({ type, percentage }) => {
 
-                const data =
-                    personalitiesData.descriptions[type];
+            const data = personalitiesData.descriptions[type];
+            if (!data) return;
 
-                if (!data) return;
+            const button = document.createElement("button");
+            button.classList.add("result-score-button");
 
-                const button =
-                    document.createElement("button");
+            const animalName = capitalize(data.animal);
 
-                button.classList.add(
-                    "result-score-button"
-                );
+            button.innerHTML = `
+                <span class="result-score-text">
+                    ${animalName}: ${percentage.toFixed(2)}%
+                </span>
+            `;
 
-                const animalName =
-                    capitalize(data.animal);
+            // ===========================
+            // BAR WIDTH BASED ON PERCENTAGE
+            // ===========================
 
-                button.innerHTML = `
-                    <span class="result-score-text">
-                        ${animalName}: ${percentage.toFixed(2)}%
-                    </span>
-                `;
+            const highestPercentage = sortedTypes[0].percentage;
 
+            // winner = 100% width
+            // everyone else proportional to winner
+            const relativeWidth =
+                highestPercentage > 0
+                    ? (percentage / highestPercentage) * 100
+                    : 100;
 
-                // Winning personality
-                if (type === personalityType) {
-                    button.classList.add("active");
+            // don't allow tiny unreadable bars
+            const finalWidth = 55 + (relativeWidth * 0.45);
 
-                    const eye =
-                        document.createElement("i");
-
-                    eye.className =
-                        "fa-solid fa-eye result-eye";
-
-                    button.appendChild(eye);
-                }
+            button.style.width = `${finalWidth}%`;
 
 
-                // Clicking another personality
-                button.addEventListener(
-                    "click",
-                    () => {
+            // Winning personality
+            if (type === personalityType) {
+                button.classList.add("active");
 
-                        showPersonalityDetails(type);
+                const eye = document.createElement("i");
+                eye.className = "fa-solid fa-eye result-eye";
 
-                        document
-                            .querySelectorAll(
-                                ".result-score-button"
-                            )
-                            .forEach(btn => {
-                                btn.classList.remove(
-                                    "active"
-                                );
-
-                                const eye =
-                                    btn.querySelector(
-                                        ".result-eye"
-                                    );
-
-                                if (eye) {
-                                    eye.remove();
-                                }
-                            });
+                button.appendChild(eye);
+            }
 
 
-                        button.classList.add(
-                            "active"
-                        );
+            button.addEventListener("click", () => {
+
+                showPersonalityDetails(type);
+
+                document
+                    .querySelectorAll(".result-score-button")
+                    .forEach(btn => {
+
+                        btn.classList.remove("active");
 
                         const eye =
-                            document.createElement("i");
+                            btn.querySelector(".result-eye");
 
-                        eye.className =
-                            "fa-solid fa-eye result-eye";
+                        if (eye) {
+                            eye.remove();
+                        }
+                    });
 
-                        button.appendChild(eye);
-                    }
-                );
+                button.classList.add("active");
+
+                const eye =
+                    document.createElement("i");
+
+                eye.className =
+                    "fa-solid fa-eye result-eye";
+
+                button.appendChild(eye);
+            });
 
 
-                detailedResults.appendChild(
-                    button
-                );
-            }
-        );
+            detailedResults.appendChild(button);
+        });
     }
 
 
