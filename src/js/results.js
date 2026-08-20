@@ -525,18 +525,132 @@ document.addEventListener(
                 "downloadResultsBtn"
             );
 
+
+        downloadButton?.addEventListener(
+            "click",
+            downloadResults
+        );
+
         if (downloadButton) {
             downloadButton.addEventListener(
                 "click",
                 downloadResults
             );
         }
+        const feedbackButton =
+            document.getElementById(
+                "feedback-button"
+            );
+
+        const feedbackCloseButton =
+            document.getElementById(
+                "feedback-closeXButton"
+            );
+
+        const feedbackOverlay =
+            document.getElementById(
+                "feedback-overlay"
+            );
+
+        const feedbackForm =
+            document.getElementById(
+                "feedback-form"
+            );
+
+
+        feedbackButton?.addEventListener(
+            "click",
+            openFeedbackPopup
+        );
+
+
+        feedbackCloseButton?.addEventListener(
+            "click",
+            closeFeedbackPopup
+        );
+
+
+        feedbackOverlay?.addEventListener(
+            "click",
+            closeFeedbackPopup
+        );
+
+
+        feedbackForm?.addEventListener(
+            "submit",
+            submitFeedback
+        );
+
+        const nextStepsButton =
+            document.getElementById(
+                "next-steps-button"
+            );
+
+        const nextStepsCloseButton =
+            document.getElementById(
+                "closeNextStepsPopup"
+            );
+
+        const nextStepsOverlay =
+            document.getElementById(
+                "next-steps-overlay"
+            );
+
+
+        nextStepsButton?.addEventListener(
+            "click",
+            openNextStepsPopup
+        );
+
+
+        nextStepsCloseButton?.addEventListener(
+            "click",
+            closeNextStepsPopup
+        );
+
+
+        nextStepsOverlay?.addEventListener(
+            "click",
+            closeNextStepsPopup
+        );
+
+        const meetupButton =
+            document.getElementById(
+                "meetup-jpg-btn"
+            );
+
+
+        meetupButton?.addEventListener(
+            "click",
+            () => {
+
+                const link =
+                    document.createElement("a");
+
+
+                link.href =
+                    "./src/assets/Money_Mindset_Meetup.jpg";
+
+
+                link.download =
+                    "Money-Mindset-Meetup-Worksheet.jpg";
+
+
+                document.body.appendChild(link);
+
+                link.click();
+
+                link.remove();
+            }
+        );
+
+
     }
 );
 
 
 // =====================================================
-// DOWNLOAD RESULTS
+// DOWNLOAD RESULT
 // =====================================================
 
 function downloadResults() {
@@ -544,20 +658,81 @@ function downloadResults() {
     const personalityType =
         window.userPersonalityType;
 
+
     if (!personalityType) {
-        console.warn(
-            "No personality result available."
+
+        console.error(
+            "Personality result has not been set."
         );
+
         return;
     }
 
 
-    // Keep this mapping until final
-    // downloadable result assets are confirmed.
-    console.log(
-        "Download requested for:",
-        personalityType
+    const downloadMap = {
+
+        saver:
+            "./src/assets/animal_results/saver.jpg",
+
+        lavish:
+            "./src/assets/animal_results/lavish.jpg",
+
+        investor:
+            "./src/assets/animal_results/investor.jpg",
+
+        hustler:
+            "./src/assets/animal_results/hustler.jpg",
+
+        "risk-taker":
+            "./src/assets/animal_results/risk-taker.jpg",
+
+        defensive:
+            "./src/assets/animal_results/defensive.jpg",
+
+        shopper:
+            "./src/assets/animal_results/shopper.jpg",
+
+        indifferent:
+            "./src/assets/animal_results/indifferent.jpg"
+    };
+
+
+    const fileUrl =
+        downloadMap[personalityType];
+
+
+    if (!fileUrl) {
+
+        console.error(
+            "No downloadable result found for:",
+            personalityType
+        );
+
+        return;
+    }
+
+
+    const link =
+        document.createElement("a");
+
+
+    link.href =
+        fileUrl;
+
+
+    link.download =
+        `${personalityType}-money-mindset-result.jpg`;
+
+
+    document.body.appendChild(
+        link
     );
+
+
+    link.click();
+
+
+    link.remove();
 }
 
 
@@ -574,4 +749,230 @@ function capitalize(str) {
         +
         str.slice(1)
     );
+}
+
+// =====================================================
+// FEEDBACK POPUP
+// =====================================================
+
+function openFeedbackPopup() {
+
+    const popup =
+        document.getElementById("feedback-popup");
+
+    const overlay =
+        document.getElementById("feedback-overlay");
+
+
+    popup?.classList.add("active");
+
+    overlay?.classList.add("active");
+}
+
+
+function closeFeedbackPopup() {
+
+    const popup =
+        document.getElementById("feedback-popup");
+
+    const overlay =
+        document.getElementById("feedback-overlay");
+
+
+    popup?.classList.remove("active");
+
+    overlay?.classList.remove("active");
+}
+
+// =====================================================
+// SUBMIT FEEDBACK
+// =====================================================
+
+async function submitFeedback(event) {
+
+    event.preventDefault();
+
+
+    const form =
+        event.currentTarget;
+
+
+    const recommendSurvey =
+        document.getElementById(
+            "recommendSurvey"
+        ).value;
+
+
+    const resultsHelpful =
+        document.getElementById(
+            "resultsHelpful"
+        ).value;
+
+
+    const company =
+        form.elements["company"]?.value || "";
+
+
+    // Bot caught by honeypot
+    if (company) {
+        console.warn("Spam submission blocked.");
+        return;
+    }
+
+
+    if (
+        !recommendSurvey ||
+        !resultsHelpful
+    ) {
+
+        alert(
+            "Please answer both questions before submitting."
+        );
+
+        return;
+    }
+
+
+    const submitBtn =
+        document.getElementById("submitBtn");
+
+
+    const spinner =
+        document.getElementById("loadingSpinner");
+
+
+    submitBtn.disabled = true;
+
+    submitBtn.style.display = "none";
+
+    spinner?.classList.remove("hidden");
+
+
+    const feedbackData = {
+
+        name: "anonymous",
+
+        question1:
+            "Would you recommend the Money Personality survey to others?",
+
+        answer1:
+            recommendSurvey,
+
+        question2:
+            "Did you find the results helpful in understanding your financial habits?",
+
+        answer2:
+            resultsHelpful,
+
+        company: company
+    };
+
+
+    try {
+
+        const response =
+            await fetch(
+                "https://mpq-backend.onrender.com/submit-feedback",
+                {
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type":
+                            "application/json"
+                    },
+
+                    body:
+                        JSON.stringify(
+                            feedbackData
+                        )
+                }
+            );
+
+
+        let result = {};
+
+        try {
+            result =
+                await response.json();
+        }
+        catch {
+            // backend may not return JSON
+        }
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                result.message ||
+                "Unable to submit feedback."
+            );
+        }
+
+
+        alert(
+            result.message ||
+            "Thank you for your feedback!"
+        );
+
+
+        form.reset();
+
+        closeFeedbackPopup();
+
+
+    }
+    catch (error) {
+
+        console.error(
+            "Feedback submission failed:",
+            error
+        );
+
+
+        alert(
+            "We couldn't submit your feedback. Please try again."
+        );
+
+    }
+    finally {
+
+        spinner?.classList.add("hidden");
+
+        submitBtn.style.display = "block";
+
+        submitBtn.disabled = false;
+    }
+}
+
+// =====================================================
+// NEXT STEPS POPUP
+// =====================================================
+
+function openNextStepsPopup() {
+
+    const popup =
+        document.getElementById("next-steps-popup");
+
+    const overlay =
+        document.getElementById("next-steps-overlay");
+
+
+    popup?.classList.add("active");
+
+    overlay?.classList.add("active");
+}
+
+
+function closeNextStepsPopup() {
+
+    const popup =
+        document.getElementById("next-steps-popup");
+
+    const overlay =
+        document.getElementById("next-steps-overlay");
+
+
+    popup?.classList.remove("active");
+
+    overlay?.classList.remove("active");
 }

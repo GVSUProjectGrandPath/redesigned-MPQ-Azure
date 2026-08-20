@@ -1,0 +1,281 @@
+.mpq-overlay {
+  display: none;
+
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.55);
+
+  z-index: 2000;
+}
+
+
+.mpq-overlay.active {
+  display: block;
+}
+
+
+.mpq-modal {
+  display: none;
+
+  position: fixed;
+  inset: 0;
+
+  align-items: center;
+  justify-content: center;
+
+  z-index: 2001;
+
+  padding: 20px;
+
+  box-sizing: border-box;
+}
+
+
+.mpq-modal.active {
+  display: flex;
+}
+
+
+.mpq-modal-inner {
+  position: relative;
+
+  width: min(92vw, 560px);
+
+  max-height: 90vh;
+
+  overflow-y: auto;
+
+  background: #ffffff;
+
+  border-radius: 24px;
+
+  padding: 30px;
+
+  box-sizing: border-box;
+
+  box-shadow:
+    0 16px 50px
+    rgba(0, 0, 0, 0.25);
+}
+
+
+.mpq-modal-header {
+  text-align: center;
+
+  margin-bottom: 25px;
+}
+
+
+.mpq-modal-logo {
+  width: 120px;
+
+  margin-bottom: 10px;
+}
+
+
+.mpq-modal-title {
+  font-size: 1.4rem;
+
+  color: #000;
+}
+
+
+.mpq-step {
+  display: none;
+}
+
+
+.mpq-step.active {
+  display: block;
+}
+
+
+.mpq-q-title {
+  color: #000;
+
+  margin-bottom: 18px;
+
+  font-size: 1.15rem;
+
+  font-weight: 700;
+}
+
+
+.required-text {
+  color: red;
+
+  opacity: 0.75;
+
+  font-size: 0.85rem;
+
+  font-style: italic;
+}
+
+
+.optional-text {
+  opacity: 0.65;
+
+  font-size: 0.85rem;
+
+  font-style: italic;
+}
+
+
+.mpq-field {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 8px;
+
+  margin-bottom: 18px;
+}
+
+
+.mpq-label {
+  color: #000;
+
+  font-weight: 600;
+}
+
+
+.mpq-input,
+.mpq-select {
+  width: 100%;
+
+  padding: 12px 14px;
+
+  border: 1px solid #ccc;
+
+  border-radius: 10px;
+
+  box-sizing: border-box;
+
+  font-family: "Poppins", sans-serif;
+
+  font-size: 0.95rem;
+
+  background: #fff;
+
+  color: #000;
+}
+
+
+.mpq-modal-footer {
+  display: flex;
+
+  justify-content: flex-end;
+
+  flex-wrap: wrap;
+
+  gap: 10px;
+
+  margin-top: 25px;
+}
+
+
+.mpq-btn {
+  padding: 11px 18px;
+
+  border-radius: 9px;
+
+  font-family: "Poppins", sans-serif;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  border: none;
+}
+
+
+.mpq-btn--primary {
+  background: #b41a8a;
+
+  color: #fff;
+}
+
+
+.mpq-btn--ghost {
+  background: #e8e8e8;
+
+  color: #000;
+}
+
+
+.mpq-btn:disabled {
+  opacity: 0.45;
+
+  cursor: not-allowed;
+}
+
+
+/* =========================
+   CONSENT OVERLAY
+========================= */
+
+.mpq-optin {
+  display: none;
+
+  position: absolute;
+  inset: 0;
+
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(255, 255, 255, 0.96);
+
+  border-radius: 24px;
+
+  z-index: 10;
+
+  padding: 25px;
+
+  box-sizing: border-box;
+}
+
+
+.mpq-optin.active {
+  display: flex;
+}
+
+
+.mpq-optin-card {
+  text-align: center;
+
+  width: 100%;
+}
+
+
+.mpq-link {
+  display: inline-block;
+
+  margin: 10px 0 20px;
+
+  color: #b41a8a;
+
+  font-weight: 600;
+}
+
+
+.mpq-actions {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 12px;
+}
+
+
+@media (max-width: 600px) {
+
+  .mpq-modal-inner {
+    padding: 24px 18px;
+  }
+
+  .mpq-modal-footer {
+    justify-content: center;
+  }
+
+}

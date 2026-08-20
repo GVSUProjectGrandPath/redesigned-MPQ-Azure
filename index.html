@@ -16,6 +16,7 @@
   <link href="./src/css/start-page.css" rel="stylesheet">
   <link href="./src/css/quiz.css" rel="stylesheet">
   <link href="./src/css/results.css" rel="stylesheet">
+  <link href="./src/css/pre-results.css" rel="stylesheet">
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="UTF-8">
@@ -162,6 +163,303 @@
 
 </div>
 
+<!-- =========================
+     PRE-RESULTS FLOW
+========================= -->
+
+<div id="pre-results-overlay" class="mpq-overlay"></div>
+
+<div
+  id="pre-results-modal"
+  class="mpq-modal"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="mpqModalTitle"
+>
+
+  <div class="mpq-modal-inner">
+
+    <!-- CONSENT STEP -->
+    <div id="opt_in_screen" class="mpq-optin">
+
+      <div class="mpq-optin-card">
+
+        <h3 class="mpq-q-title">
+          Allow FinLit to use anonymous user data?
+        </h3>
+
+        <a
+          class="mpq-link"
+          href="https://animated-pudding-290596.netlify.app/document.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Privacy Policy
+        </a>
+
+        <div class="mpq-actions">
+
+          <button
+            id="confirmBtn"
+            class="mpq-btn mpq-btn--primary"
+          >
+            Confirm
+          </button>
+
+          <button
+            id="cancelBtn"
+            class="mpq-btn mpq-btn--ghost"
+          >
+            Cancel
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- HEADER -->
+    <div class="mpq-modal-header">
+
+      <img
+        src="./src/assets/Desktop Asset/SVG/SVG Quiz Cover/QuizCoverDeskTopLogo.svg"
+        alt="REP4 FinLit Logo"
+        class="mpq-modal-logo"
+      >
+
+      <h2
+        id="mpqModalTitle"
+        class="mpq-modal-title"
+      >
+        Before we reveal your result...
+      </h2>
+
+    </div>
+
+
+    <!-- STEP 0: USER TYPE -->
+    <div class="mpq-step" data-step="0">
+
+      <h3 class="mpq-q-title">
+        Pick your squad
+        <span class="required-text">
+          (required)
+        </span>
+      </h3>
+
+      <div class="mpq-field">
+
+        <label
+          class="mpq-label"
+          for="mpqUserType"
+        >
+          I’m a...
+        </label>
+
+        <select
+          id="mpqUserType"
+          class="mpq-select"
+        >
+
+          <option
+            value=""
+            disabled
+            selected
+          >
+            Select one
+          </option>
+
+          <option value="college_student">
+            🎓 College Student
+          </option>
+
+          <option value="high_school">
+            🏫 High-School Student
+          </option>
+
+          <option value="community_member">
+            🏙️ Community Member
+          </option>
+
+        </select>
+
+      </div>
+
+    </div>
+
+
+    <!-- STEP 1: LOCATION -->
+    <div
+      class="mpq-step"
+      data-step="1"
+    >
+
+      <h3 class="mpq-q-title">
+        Where are you located?
+      </h3>
+
+
+      <div class="mpq-field">
+
+        <label
+          class="mpq-label"
+          for="mpqCountry"
+        >
+          Country
+          <span class="required-text">
+            (required)
+          </span>
+        </label>
+
+        <select
+          id="mpqCountry"
+          class="mpq-input"
+        >
+
+          <option
+            value=""
+            disabled
+            selected
+          >
+            Select country
+          </option>
+
+        </select>
+
+      </div>
+
+
+      <div
+        class="mpq-field"
+        id="mpqStateWrap"
+      >
+
+        <label
+          class="mpq-label"
+          for="mpqState"
+        >
+          State
+          <span class="optional-text">
+            (optional)
+          </span>
+        </label>
+
+        <select
+          id="mpqState"
+          class="mpq-input"
+          disabled
+        >
+
+          <option value="">
+            Select state
+          </option>
+
+        </select>
+
+      </div>
+
+
+      <div class="mpq-field">
+
+        <label
+          class="mpq-label"
+          for="mpqCity"
+        >
+          City
+          <span class="optional-text">
+            (optional)
+          </span>
+        </label>
+
+        <input
+          id="mpqCity"
+          class="mpq-input"
+          type="text"
+          placeholder="Type your city"
+          list="mpqCityList"
+          autocomplete="off"
+        >
+
+        <datalist id="mpqCityList"></datalist>
+
+      </div>
+
+    </div>
+
+
+    <!-- STEP 2: EMAIL -->
+    <div
+      class="mpq-step"
+      data-step="2"
+    >
+
+      <h3 class="mpq-q-title">
+        What’s your email?
+      </h3>
+
+      <div class="mpq-field">
+
+        <label
+          class="mpq-label"
+          for="mpqEmail"
+        >
+          Email
+          <span class="optional-text">
+            (optional)
+          </span>
+        </label>
+
+        <input
+          id="mpqEmail"
+          type="email"
+          class="mpq-input"
+          placeholder="you@example.com"
+          autocomplete="email"
+        >
+
+      </div>
+
+    </div>
+
+
+    <!-- NAVIGATION -->
+    <div class="mpq-modal-footer">
+
+      <button
+        id="mpqBackBtn"
+        class="mpq-btn"
+      >
+        Back
+      </button>
+
+      <button
+        id="mpqSkipBtn"
+        class="mpq-btn mpq-btn--ghost"
+      >
+        Skip
+      </button>
+
+      <button
+        id="mpqNextBtn"
+        class="mpq-btn mpq-btn--primary"
+      >
+        Next
+      </button>
+
+      <button
+        id="mpqFinishBtn"
+        class="mpq-btn mpq-btn--primary"
+      >
+        Reveal my result
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
 
 <!-- RESULTS PAGE MUST BE OUTSIDE QuizContainer -->
 <!-- =========================
@@ -357,6 +655,266 @@
 
     </div>
 
+    <!-- =========================================
+     NEXT STEPS POPUP
+    ========================================= -->
+
+    <div
+      id="next-steps-overlay"
+      class="next-steps-overlay"
+    ></div>
+
+
+    <div
+      id="next-steps-popup"
+      class="next-steps-popup"
+    >
+
+      <div class="next-steps-header">
+
+        <h2>Next Steps</h2>
+
+        <button
+          id="closeNextStepsPopup"
+          type="button"
+          class="next-steps-close-btn"
+        >
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+
+      </div>
+
+
+      <div class="next-steps-content">
+
+        <p>
+          Thank you for taking the REP4®FinLit Money Mindset Quiz.
+        </p>
+
+        <p>
+          You've taken the first step on your journey to financial wellness!
+        </p>
+
+
+        <h3>Next Steps:</h3>
+
+
+        <ul class="next-steps-list">
+
+          <li>
+            Join the
+            <a
+              href="https://www.rep4finlit.org"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              REP4®FinLit learning community
+            </a>
+          </li>
+
+          <li>
+            Share the Money Mindset Quiz with friends and family.
+          </li>
+
+          <li>
+            Discuss your results with friends and family using the
+            Money Mindset Meetup worksheet below.
+          </li>
+
+          <li>
+            Sign up to stay in the loop and receive more
+            Money Mindset Meetup tools and resources.
+          </li>
+
+          <li>
+            Have ideas about how we can make a bigger impact with REP4®FinLit?
+            Contact us at
+            <a href="mailto:hello@rep4finlit.org">
+              hello@rep4finlit.org
+            </a>.
+          </li>
+
+        </ul>
+
+
+        <div class="next-steps-cta">
+
+          <button
+            id="meetup-jpg-btn"
+            class="results-btn"
+            type="button"
+          >
+            Free Worksheet Download
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- =========================================
+     FEEDBACK POPUP
+    ========================================= -->
+
+  <div
+    id="feedback-overlay"
+    class="feedback-overlay"
+  ></div>
+
+
+  <div
+    id="feedback-popup"
+    class="feedback-popup"
+  >
+
+    <!-- TOP BAR -->
+    <div class="feedback-popup-header">
+
+      <h2>Feedback Form</h2>
+
+      <button
+        id="feedback-closeXButton"
+        type="button"
+        class="feedback-close-btn"
+      >
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+    </div>
+
+
+    <!-- FORM CONTENT -->
+    <div class="feedback-popup-content">
+
+      <form
+        id="feedback-form"
+        novalidate
+      >
+
+        <!-- QUESTION 1 -->
+        <label for="recommendSurvey">
+          1. Would you recommend the Money Personality survey to others?
+        </label>
+
+        <select
+          id="recommendSurvey"
+          name="recommendSurvey"
+          required
+        >
+
+          <option
+            value=""
+            disabled
+            selected
+          >
+            Select an answer
+          </option>
+
+          <option value="Definitely">
+            Definitely
+          </option>
+
+          <option value="Probably">
+            Probably
+          </option>
+
+          <option value="Not sure">
+            Not sure
+          </option>
+
+          <option value="Probably not">
+            Probably not
+          </option>
+
+          <option value="Definitely not">
+            Definitely not
+          </option>
+
+        </select>
+
+
+        <!-- QUESTION 2 -->
+        <label for="resultsHelpful">
+          2. Did you find the results helpful in understanding your financial habits?
+        </label>
+
+        <select
+          id="resultsHelpful"
+          name="resultsHelpful"
+          required
+        >
+
+          <option
+            value=""
+            disabled
+            selected
+          >
+            Select an answer
+          </option>
+
+          <option value="Yes, very helpful">
+            Yes, very helpful
+          </option>
+
+          <option value="Somewhat helpful">
+            Somewhat helpful
+          </option>
+
+          <option value="Neutral">
+            Neutral
+          </option>
+
+          <option value="Not very helpful">
+            Not very helpful
+          </option>
+
+          <option value="Not helpful at all">
+            Not helpful at all
+          </option>
+
+        </select>
+
+
+        <!-- SUBMIT -->
+        <button
+          id="submitBtn"
+          type="submit"
+        >
+          Submit Feedback
+        </button>
+
+
+        <!-- LOADING -->
+        <div
+          id="loadingSpinner"
+          class="feedback-loading hidden"
+        >
+
+          <div class="spinner"></div>
+
+          <p>
+            Submitting your feedback...
+          </p>
+
+        </div>
+
+
+        <!-- SPAM BOT TRAP -->
+        <input
+          type="text"
+          name="company"
+          class="honeypot"
+          tabindex="-1"
+          autocomplete="off"
+        >
+
+      </form>
+
+    </div>
+
+  </div>
+
   </section>
   <img id="result-footer" src="./src/assets/Desktop Asset/PNG/Footer.png" alt="">
 
@@ -364,7 +922,7 @@
 <!-- =========================
      END RESULTS PAGE
 ========================= -->
-    
+
 <!-- ===== End Pre-Results Modal Pushpa===== -->
 
   <!-- Firebase SDKs -->
@@ -398,6 +956,7 @@
     <!-- <script src="/src/js/profanity.js"></script> -->
     <script src="./src/js/personalities.js"></script>
     <script src="./src/js/questions.js"></script>
+    <script src="./src/js/pre-results.js"></script>
     <script src="./src/js/results.js"></script>
     <script src="./src/js/quiz.js"></script>
     

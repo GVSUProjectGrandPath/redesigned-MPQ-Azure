@@ -36,7 +36,7 @@ function changeQuestion(button) {
 
     if (currentQuestionIndex == 15) {
         calculatePoints();
-        showResultsPage();
+        showPreResultsFlow();
         return;
     }
         
