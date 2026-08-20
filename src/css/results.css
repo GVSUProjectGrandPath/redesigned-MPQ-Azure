@@ -872,7 +872,8 @@
   }
 
   #downloadResultsBtn {
-    order: unset;
+    white-space: nowrap;
+    font-size: 0.82rem;
   }
 
   #next-steps-button {
