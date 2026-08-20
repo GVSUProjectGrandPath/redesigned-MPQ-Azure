@@ -33,9 +33,7 @@
   display: block;
 }
 
-.ResultsContainer.active {
-  display: block;
-}
+
 
 .ResultsFinlitLogo {
   width: 140px;
@@ -615,82 +613,175 @@
    RESPONSIVE
    ========================================================= */
 
+/* =========================================================
+   TABLET + MOBILE
+   ========================================================= */
+
 @media (max-width: 800px) {
 
   .ResultsFinlitLogo {
-    width: 105px;
-
-    margin: 15px 0 0 18px;
+    width: 95px;
+    margin: 14px 0 0 16px;
   }
 
+  .results-top {
+    min-height: auto;
+    padding-top: 10px;
+  }
+
+  .results-summary {
+    width: 100%;
+    height:80%;
+    margin: 15px auto 0;
+  }
+
+  /* =========================
+     WINNER GRAPHIC
+     ========================= */
 
   #result-section1 {
-    width: 78%;
-    
-    padding-top: 120px;
-  }
+    width: 88%;
+    max-width: 430px;
 
+    margin: 15px auto 0;
+    padding-top: 0;
+
+    display: flex;
+    justify-content: center;
+  }
 
   #polaroid-animal-image {
-    width: 200px;
+    width: 100%;
+    max-width: 430px;
+    height: auto;
   }
 
-
   #result-header {
-    min-height: 100px;
+    position: absolute;
 
-    padding: 18px 45px;
+    left: 50%;
+    bottom: 10%;
 
+    transform: translateX(-50%);
+
+    width: 78%;
+
+    min-height: unset;
+    padding: 0;
+
+    font-size: clamp(0.95rem, 4vw, 1.2rem);
+    line-height: 1.25;
+
+    text-align: center;
+  }
+
+  /* =========================
+     RESULT PERCENTAGES
+     ========================= */
+
+  #result-section2 {
+    width: 90%;
+    max-width: 560px;
+
+    margin: -30px auto 0;
+
+    padding: 65px 22px 30px;
+
+    border-radius: 30px;
+  }
+
+  #detailed-results {
+      grid-template-columns: 1fr;
+      grid-template-rows: none;
+      grid-auto-flow: row;
+
+      row-gap: 12px;
+  }
+
+  .result-score-button {
+    min-width: 70%;
+    max-width: 100%;
+
+    min-height: 92px;
+
+    padding: 15px 35px;
+
+    border-radius: 28px;
+
+    font-size: 1rem;
+
+    justify-self: start;
+  }
+
+  .result-score-text {
+    white-space: nowrap;
+  }
+
+  .result-eye {
+    margin-left: 10px;
+  }
+
+  /* =========================
+     SCROLL MESSAGE
+     ========================= */
+
+  .results-scroll-prompt {
+    margin: 18px 0 8px;
+  }
+
+  #scroll-down-text {
+    font-size: 1rem;
+  }
+
+  .scroll-arrow {
+    font-size: 2.2rem;
+  }
+
+  /* =========================
+     DESCRIPTION SECTION
+     ========================= */
+
+  .desc-container {
+    width: 92%;
+
+    min-height: auto;
+
+    margin: 25px auto 40px;
+
+    padding: 35px 22px 30px;
+
+    border-radius: 30px;
+
+    justify-content: flex-start;
+  }
+
+  .topsection {
+    margin-bottom: 45px;
+  }
+
+  .description_h2 {
     font-size: 1.1rem;
   }
 
-
-  #result-header::before,
-  #result-header::after {
-    width: 60px;
-    height: 60px;
+  #descriptionText {
+    font-size: 0.95rem;
+    line-height: 1.5;
   }
 
-
-  #result-header::before {
-    left: -35px;
-  }
-
-
-  #result-header::after {
-    right: -35px;
-  }
-
-
-  #result-section2 {
-    width: 88%;
-
-    padding: 115px 30px 55px;
-
-    margin-top: -50px;
-  }
-
-
-  #detailed-results {
-    grid-template-columns: 1fr;
-
-    row-gap: 15px;
-  }
-
-
-  .desc-container {
-    width: 90%;
-
-    padding: 60px 30px 55px;
-  }
-
+  /* =========================
+     DETAIL CARDS
+     ========================= */
 
   #second-section {
+    display: grid;
+
     grid-template-columns: 1fr;
+    grid-template-rows: auto;
 
-    row-gap: 65px;
+    grid-auto-flow: row;
+
+    row-gap: 55px;
   }
-
 
   .advantages,
   .disadvantages,
@@ -699,37 +790,260 @@
     grid-column: 1;
   }
 
-
   .advantages {
     grid-row: 1;
   }
-
 
   .disadvantages {
     grid-row: 2;
   }
 
-
   .motivators {
     grid-row: 3;
   }
-
 
   .demotivators {
     grid-row: 4;
   }
 
+  .card {
+    min-height: unset;
 
-  .buttons {
-    flex-wrap: wrap;
+    padding: 45px 24px 24px;
+
+    border-radius: 24px;
   }
 
+  .card::before {
+    width: 58px;
+    height: 58px;
+
+    top: -29px;
+  }
+
+  .card .description_h2 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+
+  .card ul {
+    margin-top: 10px;
+  }
+
+  .card ul li {
+    font-size: 0.95rem;
+    line-height: 1.45;
+  }
+
+  /* =========================
+     BUTTONS
+     ========================= */
+
+  .buttons {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 12px;
+
+    width: 100%;
+
+    margin-top: 30px;
+  }
 
   .buttons button {
-    min-width: 140px;
+    width: 100%;
+
+    min-width: 0;
+
+    padding: 13px 10px;
+
+    font-size: 0.85rem;
+
+    border-radius: 10px;
+  }
+
+  #feedback-button {
+    order: unset;
+  }
+
+  #restart-button {
+    order: unset;
+  }
+
+  #downloadResultsBtn {
+    order: unset;
+  }
+
+  #next-steps-button {
+    order: unset;
+  }
+
+  /* =========================
+     FOOTER
+     ========================= */
+
+  #result-footer {
+    margin-top: -55px;
+
+    z-index: 1;
   }
 }
 
+/* =========================================================
+   PHONE SPECIFIC
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+  .ResultsContainer {
+    scroll-snap-type: none;
+  }
+
+  .ResultsFinlitLogo {
+    width: 82px;
+    margin: 12px 0 0 12px;
+  }
+
+  #result-section1 {
+    width: 94%;
+    max-width: 360px;
+
+    margin-top: 8px;
+  }
+
+  #polaroid-animal-image {
+    width: 100%;
+    max-width: 360px;
+  }
+
+  #result-header {
+    bottom: 10%;
+
+    width: 76%;
+
+    font-size: 0.95rem;
+    line-height: 1.2;
+  }
+
+  #result-section2 {
+    width: 92%;
+
+    margin-top: -25px;
+
+    padding: 55px 18px 24px;
+
+    border-radius: 26px;
+  }
+
+  #detailed-results {
+    row-gap: 12px;
+  }
+  .result-score-button {
+      min-width: 72%;
+      max-width: 100%;
+
+      min-height: 12px;
+
+      padding: 10px 16px;
+
+      border-radius: 26px;
+
+      font-size: 0.95rem;
+
+      justify-self: start;
+  }
+
+  .result-score-text {
+    white-space: nowrap;
+
+    overflow: hidden;
+  }
+
+  .results-scroll-prompt {
+    margin-top: 16px;
+  }
+
+  .desc-container {
+    width: 94%;
+
+    margin-top: 20px;
+
+    padding: 32px 18px 28px;
+
+    border-radius: 26px;
+  }
+
+  .topsection {
+    margin-bottom: 42px;
+  }
+
+  #descriptionText {
+    font-size: 0.9rem;
+  }
+
+  #second-section {
+    row-gap: 52px;
+  }
+
+  .card {
+    padding: 42px 20px 22px;
+
+    border-radius: 22px;
+  }
+
+  .card ul {
+    padding-left: 20px;
+  }
+
+  .card ul li {
+    font-size: 0.9rem;
+  }
+
+  .buttons {
+    grid-template-columns: 1fr 1fr;
+
+    gap: 10px;
+
+    margin-top: 28px;
+  }
+
+  .buttons button {
+    min-height: 50px;
+
+    padding: 11px 8px;
+
+    font-size: 0.8rem;
+  }
+
+  #restart-button,
+  #downloadResultsBtn {
+    gap: 5px;
+  }
+
+  #restart-button::before,
+  #downloadResultsBtn::before {
+    font-size: 0.8rem;
+  }
+
+  #result-footer {
+    margin-top: -40px;
+  }
+
+  .feedback-popup,
+  .next-steps-popup {
+    width: 92vw;
+
+    max-height: 82vh;
+
+    border-radius: 18px;
+  }
+
+  .feedback-popup-content,
+  .next-steps-content {
+    padding: 20px;
+  }
+}
 
 /* =========================================================
    FEEDBACK POPUP

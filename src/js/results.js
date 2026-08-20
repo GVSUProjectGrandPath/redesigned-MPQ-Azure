@@ -164,15 +164,30 @@ function showResults() {
 
             const highestPercentage = sortedTypes[0].percentage;
 
-            // winner = 100% width
-            // everyone else proportional to winner
             const relativeWidth =
                 highestPercentage > 0
                     ? (percentage / highestPercentage) * 100
                     : 100;
 
-            // don't allow tiny unreadable bars
-            const finalWidth = 55 + (relativeWidth * 0.45);
+            const isMobile = window.innerWidth <= 800;
+
+            let finalWidth;
+
+            if (isMobile) {
+                /*
+                Mobile:
+                keep variable widths, but compress the range
+                so low scores are still readable.
+                Range becomes roughly 70%–100%.
+                */
+                finalWidth = 70 + (relativeWidth * 0.30);
+            } else {
+                /*
+                Desktop:
+                stronger visual difference.
+                */
+                finalWidth = 55 + (relativeWidth * 0.45);
+            }
 
             button.style.width = `${finalWidth}%`;
 
