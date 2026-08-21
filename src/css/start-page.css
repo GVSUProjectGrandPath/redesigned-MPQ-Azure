@@ -76,7 +76,7 @@
     .start-btn {
         background: linear-gradient(to top,  #6D1D59, #A12D84, #DC3EB5);
         border-radius: 1000000px;
-        z-index: 1;
+        z-index: 100;
 
         color: white;
         font-weight: 700;
@@ -464,4 +464,37 @@
         100% {transform: translateY(0)}
     }
 }
+
+
+@media (max-width: 768px) and (min-aspect-ratio: 3/4.3) {
+    .start-page-content {
+        padding-top: calc(22vh - 12vw);
+    }
+
+    .start-page-content h3 {
+        font-size: clamp(1.4em, 8vw, 2em);
+    }
+
+    .start-page-content h2 {
+        font-size: clamp(2em ,9vw, 3em);
+    }
+
+    .start-page-content h1 {
+        font-size: clamp(2em ,9vw, 3em);
+    }
+
+    .start-btn {
+        font-size: clamp(2.5em, 4.5vw, 5em);
+        padding: 3vh 5vw;
+    }
+
+    .bee {
+        width: 28vw;
+    }
+
+    .panda {
+        left: 42vw;
+    }
+}
+
 /* END OF START PAGE STYLES */
