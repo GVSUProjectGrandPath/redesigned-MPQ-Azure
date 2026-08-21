@@ -3,6 +3,7 @@
     height: 100dvh;
     width: 100dvw;
     background: linear-gradient(#FFFFFF, #B3EDF9, var(--blue));
+    overflow-x: hidden;
 }
 .QuizContainer.active {
     display: block;
@@ -17,16 +18,16 @@
     position: absolute;
     top: 0;
     right: 5dvw;
-    width: 32dvw;
+    width: 35dvw;
     height: 15dvh;
     border-radius: 0 0 40px 40px;
-    background-color: #42d3f0;
+    background-color: #8adffd;
 }
 .ProgressBarTrack {
     position: absolute;
     top: 50%;
-    left: 10%;
-    width: 80%;
+    left: 15%;
+    width: 70%;
     height: 20%;
     background-color: var(--white);
     border-radius: 50vw;
@@ -48,7 +49,7 @@
     top: 50%;
     transform: translateY(-50%);
     height: 300%;
-    right: 0;
+    right: -10px;
 }
 .ProgressBarText {
     position: absolute;

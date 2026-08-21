@@ -27,8 +27,11 @@ let ProgressBarText = document.querySelector('.ProgressBarText');
 const QuizAnimalIcon = document.querySelector('.QuizAnimalIcon');
 const QuestionText = document.querySelector('.QuestionText');
 
+let isAnimating = false;
+
 // Next and Back Button
 function changeQuestion(button) {
+    if (isAnimating) return; // ignore clicks mid-animation
     if (button == nextBtn) {
 
     // Always save the current answer first
@@ -140,50 +143,58 @@ function sliderInput() {
 slider.addEventListener('change', sliderInput);
 
 
-let isAnimating = false;
 
 async function answerButtonInput(button) {
     if (isAnimating) return; // ignore clicks mid-animation
     isAnimating = true;
+
+    answerButtons.forEach(btn => btn.classList.remove('active'));
+    button.classList.add('active');
 
     let finishValue = Math.max(Number(slider.min), Math.min(Number(slider.max), (button.id - 1) * 25 - 1));
     let startValue = Number(slider.value);
     let distance = Math.abs(finishValue - startValue);
     console.log(distance);
     let step = 1;
+    let speed = 1;
+    let three_step = false;
     if (distance == 24 || distance == 25) {
-        step = 1;
+        speed = 1;
     } else if (distance == 49 || distance == 50) {
-        step = 2;
+        speed = 2;
     } else if (distance == 74 || distance == 75) {
-        step = 3;
+        speed = 2;
+        three_step = true;
     } else if (distance > 90) {
-        step = 3.75;
+        speed = 4;
+        step = 2;
     }
-    let t = 0;
-    //let t = 0;
+    
+    let t = 4/speed;
+    let count = 0;
     if (startValue > finishValue) {
         while (Number(slider.value) > finishValue) {
-            slider.value = Number(slider.value) - 1;
+            count += 1;
+            slider.value = Number(slider.value) - step;
             updateSliderFill();
-            let time = ((t - 1) ** 3 + 1)/step; // function creates a value between 0 and 1, gets closer to 1 at the end
-            t += 0.2/step;
-            await sleep(time);
+            if (three_step && count % 3 == 0) {
+                continue;
+            }
+            await sleep(t);
         }
     } else if (startValue < finishValue) {
         while (Number(slider.value) < finishValue) {
-            slider.value = Number(slider.value) + 1;
+            count += 1;
+            slider.value = Number(slider.value) + step;
             updateSliderFill();
-            let time = ((t - 1) ** 3 + 1)/step; // function creates a value between 0 and 1, gets closer to 1 at the end
-            t += 0.2/step;
-            await sleep(time);
+            if (three_step && count % 3 == 0) {
+                continue;
+            }
+            await sleep(t);
         }
     }
 
     slider.value = finishValue;
-    answerButtons.forEach(btn => btn.classList.remove('active'));
-    button.classList.add('active');
-
     isAnimating = false;
 }
 
