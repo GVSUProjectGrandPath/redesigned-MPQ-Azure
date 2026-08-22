@@ -57,7 +57,7 @@
     left: 20%;
     transform: translate(-50%, -50%);
     font-family: sans-serif;
-    font-size: clamp(0.75rem, 2.5vw, 1.5rem);
+    font-size: clamp(0.2rem, 2.25vw, 1.5rem);
     color: black;
     text-align: left;
 }
@@ -149,6 +149,10 @@
 .AnswerButton:hover {
     background-color: var(--purple);
     color: white;
+}
+.AnswerButton:focus {
+    outline: none;
+    background-color: none;
 }
 .AnswerButton.active {
     background-color: #9ee5ff;
@@ -252,6 +256,18 @@ input[type="range"]:active::-moz-range-thumb {
         display: block;
     }
 }
+@media (max-height: 400px) {
+    .QuestionText {
+        font-size: clamp(0.75rem, 2vh, 3rem);
+    }
+    .AnswerButton {
+        font-size: clamp(0.75rem, 1.25vh, 1.4rem);
+    }
+    .ProgressBarText {
+        font-size: clamp(0.65rem, 1.3vh, 1.5rem);
+    }
+}
+
 @media (orientation: portrait) {
     .QuizFinlitLogo {
         left: 25px;
