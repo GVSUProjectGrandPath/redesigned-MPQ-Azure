@@ -251,6 +251,12 @@ input[type="range"]:active::-moz-range-thumb {
     right: -4dvw;
 }
 
+@media (hover: hover) {
+    .AnswerButton {
+        background-color: none;
+    }
+}
+
 @media (max-width: 1600px) {
     .buttonNewLine {
         display: block;
