@@ -162,7 +162,7 @@
     color: black;
 }
 img {
-    user-select: none; 
+    user-select: none;
     pointer-events: none;
 }
 .buttonNewLine {
@@ -185,15 +185,15 @@ input[type="range"] {
 }
 /* Target Chrome, Safari, Opera, and Edge */
 input[type="range"]::-webkit-slider-thumb {
-    -webkit-appearance: none; 
+    -webkit-appearance: none;
     appearance: none;
-    height: 100px;  
-    aspect-ratio: 1/2;   
+    height: 100px;
+    aspect-ratio: 1/2;
     background-image: url('/src/assets/Desktop Asset/SVG/Slider_button_selected.svg');
     background-position: center 25px;
     background-size: contain;     /* Forces image to scale perfectly inside the width/height */
     background-repeat: no-repeat; /* Prevents repeating patterns */
-    cursor: pointer; 
+    cursor: pointer;
 }
 input[type="range"]:active::-webkit-slider-thumb {
     cursor: grabbing;
@@ -204,23 +204,26 @@ input[type="range"]:active::-webkit-slider-thumb {
 input[type="range"]::-moz-range-thumb {
     -moz-appearance: none;
     appearance: none;
-    height: 100px;  
-    aspect-ratio: 1/2;   
+    height: 100px;
+    aspect-ratio: 1/2;
     background-image: url('/src/assets/Desktop Asset/SVG/Slider_button_selected.svg');
     background-position: center 25px;
     background-size: contain;     /* Forces image to scale perfectly inside the width/height */
     background-repeat: no-repeat; /* Prevents repeating patterns */
-    cursor: pointer; 
+    cursor: pointer;
+    background-color: transparent;
+    border: 0px;
+    min-width: 55px;
 }
 input[type="range"]:active::-moz-range-thumb {
     cursor: grabbing;
-    background-image: url('/src/assets/Desktop Asset/SVG/Slider_button_selected.svg');
+    background-image: url('/src/assets/Desktop Asset/SVG/Slider_button.svg');
 }
 
 .bottomBubbles {
-    width: 100%; 
+    width: 100%;
     background-size: cover;
-    position: absolute; 
+    position: absolute;
     left: 0;
     bottom: 0;
 }
@@ -331,9 +334,9 @@ input[type="range"]:active::-moz-range-thumb {
     }
     input[type="range"]::-webkit-slider-thumb {
         transform: rotate(180deg);
-        width: 55px;  
+        width: 55px;
         height: auto;
-        aspect-ratio: 1/1;   
+        aspect-ratio: 1/1;
         background-position: center center;
         background-image: url('/src/assets/Desktop Asset/PNG/Slider_button.png');
         /* background-image: url('/src/assets/Desktop Asset/SVG/Slider_button_selected.svg'); */
@@ -344,9 +347,9 @@ input[type="range"]:active::-moz-range-thumb {
     /* Target Firefox */
     input[type="range"]::-moz-range-thumb {
         transform: rotate(180deg);
-        width: 55px;  
+        width: 55px;
         height: auto;
-        aspect-ratio: 1/1;   
+        aspect-ratio: 1/1;
         background-position: center center;
         background-image: url('/src/assets/Desktop Asset/PNG/Slider_button.png');
     }
