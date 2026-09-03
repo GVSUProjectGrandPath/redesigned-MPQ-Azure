@@ -342,6 +342,7 @@ input[type="range"]:active::-moz-range-thumb {
         /* background-image: url('/src/assets/Desktop Asset/SVG/Slider_button_selected.svg'); */
         background-color: transparent;
         border: 0px;
+        box-shadow: none;
     }
     input[type="range"]:active::-webkit-slider-thumb {
         transform: rotate(180deg);
@@ -356,6 +357,7 @@ input[type="range"]:active::-moz-range-thumb {
         background-image: url('/src/assets/Desktop Asset/PNG/Slider_button.png');
         background-color: transparent;
         border: 0px;
+        box-shadow: none;
     }
     input[type="range"]:active::-moz-range-thumb {
         transform: rotate(180deg);
