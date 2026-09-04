@@ -278,6 +278,10 @@ input[type="range"]:active::-moz-range-thumb {
     .QuestionsContainer {
         height: 80dvh;
     }
+    .bottomBubbles {
+        width: 110%;
+        left: -5%;
+    }
     .QuestionText {
         font-size: clamp(0.75rem, 2vh, 3rem);
     }
