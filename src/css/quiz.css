@@ -3,7 +3,7 @@
     height: 100dvh;
     width: 100dvw;
     background: linear-gradient(#FFFFFF, #B3EDF9, var(--blue));
-    overflow-x: hidden;
+    overflow: hidden;
 }
 .QuizContainer.active {
     display: block;
