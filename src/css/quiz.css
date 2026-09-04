@@ -20,7 +20,7 @@
     right: 5dvw;
     width: 35dvw;
     height: 15dvh;
-    border-radius: 0 0 40px 40px;
+    border-radius: 0 0 calc(1vw + 1vh) calc(1vw + 1vh);
     background-color: #8adffd;
 }
 .ProgressBarTrack {
@@ -266,6 +266,18 @@ input[type="range"]:active::-moz-range-thumb {
     }
 }
 @media (max-height: 400px) {
+    .AnimalIconContainer {
+        position: absolute;
+        top: 12.5dvh;
+        height: 15dvh;
+    }
+    .QuizFinlitLogo {
+        left: 25px;
+        height: 17.5dvh;
+    }
+    .QuestionsContainer {
+        height: 80dvh;
+    }
     .QuestionText {
         font-size: clamp(0.75rem, 2vh, 3rem);
     }
@@ -283,13 +295,8 @@ input[type="range"]:active::-moz-range-thumb {
         height: 15dvh;
     }
     .ProgressBarContainer {
-        position: absolute;
-        top: 0;
-        right: 5dvw;
         width: 45dvw;
         height: 12.5dvh;
-        border-radius: 0 0 40px 40px;
-        background-color: #8adffd;
     }
     .ProgressBarTrack {
         left: 15%;
