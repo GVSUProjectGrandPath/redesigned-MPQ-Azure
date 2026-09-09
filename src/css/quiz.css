@@ -147,8 +147,7 @@
     margin: 0 4px;          /* optional spacing between buttons */
 }
 .AnswerButton:hover {
-    background-color: var(--purple);
-    color: white;
+    background-color: none;
 }
 .AnswerButton:focus {
     outline: none;
@@ -264,8 +263,9 @@ input[type="range"]:active::-moz-range-thumb {
 }
 
 @media (hover: hover) {
-    .AnswerButton {
-        background-color: none;
+    .AnswerButton:hover {
+        background-color: var(--purple);
+        color: white;
     }
 }
 
