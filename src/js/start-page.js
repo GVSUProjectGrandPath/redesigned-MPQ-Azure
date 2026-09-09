@@ -11,13 +11,14 @@ let mobile = false;
 
 window.addEventListener("resize", screenChanges);
 function screenChanges() {
-    mobile = window.innerWidth <= 768; // boolean value 
+    isPortrait = window.innerWidth < window.innerHeight;
+    mobile = (window.innerWidth <= 768 && isPortrait) || window.innerHeight < 600; // boolean value
 
     animals.forEach(animal => {
         animal.style.animationPlayState = mobile ? "running" : "paused"; // if mobile "running" if not "paused"
     });
 
-    if (mobile) {
+    if (mobile && window.innerHeight > 600) {
         topBubbles.src = "./src/assets/Mobile Asset/SVG/SVG Quiz Cover/QuizCoverUpperBubbleMobile.svg";
         bottomBubbles.src = "./src/assets/Mobile Asset/SVG/SVG Quiz Cover/QuizCoverLowerBubblesMobile.svg";
         logo.src = "src/assets/Mobile Asset/SVG/SVG Quiz Cover/QuizCoverMoblieLogo.svg";
@@ -26,7 +27,7 @@ function screenChanges() {
         bottomBubbles.src = "./src/assets/Desktop Asset/SVG/SVG Quiz Cover/QuizCoverLowerBubblesDesktop.svg";
         logo.src = "./src/assets/Desktop Asset/SVG/SVG Quiz Cover/QuizCoverDeskTopLogo.svg";
     }
-}   
+}
 screenChanges()
 
 
@@ -60,7 +61,7 @@ function quizStart() {
     document.querySelector(".QuizContainer").classList.add("active");
     document.getElementById("start-page").classList.remove("active");
 }
-        
+
 async function sleep(ms) {
   await new Promise((resolve) => setTimeout(resolve, ms));
 }

@@ -98,7 +98,7 @@
     .bee {
         z-index: 1;
 
-        width: 20.4vw;
+        width: 16.32vw;
         height: auto;
 
         bottom: 10vh;
@@ -121,7 +121,7 @@
     .owl {
         z-index: 5;
 
-        width: 13.3vw;
+        width: 10.64vw;
         height: auto;
 
         bottom: 7.5vh;
@@ -280,7 +280,7 @@
         100% {transform: translateY(0)}
     }
 
-@media (max-width: 768px), (max-height: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
     .top-bubbles {
         margin-top: -75px;
     }
@@ -466,7 +466,7 @@
 }
 
 
-@media (max-width: 768px) and (min-aspect-ratio: 3/4.3) {
+@media (max-width: 768px) and (min-aspect-ratio: 3/4.3) and (orientation: portrait) {
     .start-page-content {
         padding-top: calc(22vh - 12vw);
     }
@@ -494,6 +494,65 @@
 
     .panda {
         left: 42vw;
+    }
+}
+
+/* Landscape phone  */
+@media (max-height: 600px) {
+    .top-bubbles {
+        max-width: 30vw;
+    }
+
+    .logo {
+        max-width: 125px;
+    }
+
+    .start-page-content h1 {
+        padding-bottom: 1.5vh;
+    }
+
+    .start-page-content * {
+        transform: scale(0.85);
+    }
+
+    .bee {
+        width: 17.05vw;
+        left: 4.2vw;
+    }
+
+    .owl {
+        width: 11.51vw;
+        left: 17.3vw;
+    }
+
+    .armadillo {
+        width: 15.84vw;
+        left: 28vw;
+    }
+
+    .panda {
+        width: 11.84vw;
+        left: 42.8vw;
+    }
+
+    .squirrel {
+        width: 15.84vw;
+        left: 51.3vw;
+    }
+
+    .poodle {
+        width: 17.6vw;
+        left: 61.3vw;
+    }
+
+    .octopus {
+        width: 19.44vw;
+        left: 74.9vw;
+    }
+
+    .rabbit {
+        width: 15.2vw;
+        width: 19vw;
     }
 }
 
