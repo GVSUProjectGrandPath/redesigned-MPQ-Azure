@@ -34,6 +34,8 @@
     position: absolute;
     top: 5px;
     left: 20px;
+    width: 30vw;
+    max-width: 200px;
 }
 
 .start-page-content {
@@ -498,62 +500,64 @@
 }
 
 /* Landscape phone  */
-@media (max-height: 600px) {
+@media (max-height: 600px) and (orientation: landscape) {
     .top-bubbles {
-        max-width: 30vw;
+        max-width: 25vw;
     }
 
     .logo {
-        max-width: 125px;
+        max-width: 100px;
     }
 
     .start-page-content h1 {
-        padding-bottom: 1.5vh;
+        padding-bottom: 1vh;
     }
 
     .start-page-content * {
-        transform: scale(0.85);
+        transform: scale(0.7);
     }
 
     .bee {
-        width: 17.05vw;
-        left: 4.2vw;
+        width: 14.05vw;
+        left: 6.2vw;
     }
 
     .owl {
-        width: 11.51vw;
-        left: 17.3vw;
+        width: 8.51vw;
+        left: 19.3vw;
     }
 
     .armadillo {
-        width: 15.84vw;
-        left: 28vw;
+        width: 12.84vw;
+        left: 30vw;
     }
 
     .panda {
-        width: 11.84vw;
-        left: 42.8vw;
+        width: 8.84vw;
+        left: 44.8vw;
     }
 
     .squirrel {
-        width: 15.84vw;
-        left: 51.3vw;
+        width: 12.84vw;
+        left: 53.3vw;
     }
 
     .poodle {
-        width: 17.6vw;
-        left: 61.3vw;
+        width: 14.6vw;
+        left: 63.3vw;
     }
 
     .octopus {
-        width: 19.44vw;
-        left: 74.9vw;
+        width: 16.44vw;
+        left: 76.9vw;
     }
 
     .rabbit {
-        width: 15.2vw;
-        width: 19vw;
+        width: 13.2vw;
+        left: 75.2vw;
     }
 }
 
 /* END OF START PAGE STYLES */
+
+/*402 x 595*/
