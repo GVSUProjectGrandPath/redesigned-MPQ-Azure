@@ -552,17 +552,20 @@
 
     .poodle {
         width: 16.6vw;
-        right: 24.1%;
+        /*right: 24.1%;*/
+        left: 75.9
     }
 
     .octopus {
         width: 20.44vw;
-        right: 9.7%;
+        /*right: 9.7%;*/
+        left: 71.3%;
     }
 
     .rabbit {
-        width: 15.2vw;
-        right: 13.6%;
+        width: 16.2vw;
+        /*right: 13.6%;*/
+        left: 72.4%;
     }
 }
 
