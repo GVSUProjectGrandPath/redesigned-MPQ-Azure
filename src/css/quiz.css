@@ -193,6 +193,9 @@ input[type="range"]::-webkit-slider-thumb {
     background-size: contain;     /* Forces image to scale perfectly inside the width/height */
     background-repeat: no-repeat; /* Prevents repeating patterns */
     cursor: pointer;
+    background-color: transparent;
+    border: 0px;
+    box-shadow: none;
 }
 input[type="range"]:active::-webkit-slider-thumb {
     cursor: grabbing;
@@ -210,9 +213,11 @@ input[type="range"]::-moz-range-thumb {
     background-size: contain;     /* Forces image to scale perfectly inside the width/height */
     background-repeat: no-repeat; /* Prevents repeating patterns */
     cursor: pointer;
-    background-color: transparent;
     border: 0px;
     min-width: 55px;
+    background-color: transparent;
+    border: 0px;
+    box-shadow: none;
 }
 input[type="range"]:active::-moz-range-thumb {
     cursor: grabbing;

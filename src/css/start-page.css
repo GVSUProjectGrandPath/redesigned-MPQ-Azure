@@ -511,6 +511,7 @@
 
     .start-page-content {
         gap: 0vh;
+        padding-top: calc(25vh - 15vw);
     }
 
     .start-page-content * {
@@ -527,12 +528,12 @@
 
     .bee {
         width: 16.05vw;
-        left: 10.2%;
+        left: 9.2%;
     }
 
     .owl {
         width: 11.51vw;
-        left: 21.8%;
+        left: 20.8%;
     }
 
     .armadillo {
