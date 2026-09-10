@@ -509,52 +509,60 @@
         max-width: 100px;
     }
 
-    .start-page-content h1 {
-        padding-bottom: 1vh;
+    .start-page-content {
+        gap: 0vh;
     }
 
     .start-page-content * {
         transform: scale(0.7);
     }
 
+    .start-page-content h1 {
+        padding-bottom: 0vh;
+    }
+
+    .start-page-content h2 {
+        padding-top: 0vh;
+    }
+
     .bee {
-        width: 14.05vw;
-        left: 6.2vw;
+        width: 16.05vw;
+        left: 10.2%;
     }
 
     .owl {
-        width: 8.51vw;
-        left: 19.3vw;
+        width: 11.51vw;
+        left: 21.8%;
     }
 
     .armadillo {
-        width: 12.84vw;
-        left: 30vw;
+        width: 14.84vw;
+        left: 31.5%;
     }
 
     .panda {
-        width: 8.84vw;
-        left: 41.8vw;
+        width: 10.84vw;
+        left: 44.5%;
     }
 
     .squirrel {
-        width: 12.84vw;
-        left: 50.3vw;
+        width: 14.84vw;
+        left: 51.3%;
     }
 
     .poodle {
-        width: 14.6vw;
-        left: 60.3vw;
+        width: 16.6vw;
+        right: 24.1%;
     }
 
     .octopus {
-        width: 16.44vw;
-        left: 73.9vw;
+        width: 20.44vw;
+        right: 9.7%;
     }
 
     .rabbit {
-        width: 13.2vw;
-        left: 72.2vw;
+        width: 15.2vw;
+        right: 13.6%;
     }
 }
 
