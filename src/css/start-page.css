@@ -150,7 +150,7 @@
         height: auto;
 
         bottom: 5vh;
-        left: 26vw;
+        left: 24vw;
 
         animation: armadillo-jump 1.5s ease-in-out infinite;
         animation-play-state: paused;
@@ -506,7 +506,7 @@
     }
 
     .logo {
-        max-width: 100px;
+        width: clamp(75px, 10vw ,100px);
     }
 
     .start-page-content {
@@ -520,10 +520,16 @@
 
     .start-page-content h1 {
         padding-bottom: 0vh;
+        font-size: clamp(2em, 6vw, 5.875em);
     }
 
     .start-page-content h2 {
         padding-top: 0vh;
+        font-size: clamp(1.5em, 5vw, 4.8em);
+    }
+
+    .start-page-content h3 {
+        font-size: clamp(0.8em, 4vw, 3.45em);
     }
 
     .bee {
