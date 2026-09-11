@@ -1692,3 +1692,22 @@
     padding: 18px 22px;
   }
 }
+
+/* =========================================================
+   MOBILE - SCROLL INDICATOR
+   Show arrow only, hide "Scroll for more" text
+   ========================================================= */
+
+@media screen and (max-width: 800px) {
+  #scroll-down-text {
+    display: none;
+  }
+
+  .results-scroll-prompt {
+    margin: 10px 0 5px;
+  }
+
+  .scroll-arrow {
+    margin-top: 0;
+  }
+}
