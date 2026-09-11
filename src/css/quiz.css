@@ -3,6 +3,7 @@
     height: 100dvh;
     width: 100dvw;
     background: linear-gradient(#FFFFFF, #B3EDF9, var(--blue));
+    overflow: hidden;
 }
 .QuizContainer.active {
     display: block;
@@ -17,16 +18,16 @@
     position: absolute;
     top: 0;
     right: 5dvw;
-    width: 32dvw;
+    width: 35dvw;
     height: 15dvh;
-    border-radius: 0 0 40px 40px;
-    background-color: #42d3f0;
+    border-radius: 0 0 calc(1vw + 1vh) calc(1vw + 1vh);
+    background-color: #8adffd;
 }
 .ProgressBarTrack {
     position: absolute;
     top: 50%;
-    left: 10%;
-    width: 80%;
+    left: 15%;
+    width: 70%;
     height: 20%;
     background-color: var(--white);
     border-radius: 50vw;
@@ -48,7 +49,7 @@
     top: 50%;
     transform: translateY(-50%);
     height: 300%;
-    right: 0;
+    right: -10px;
 }
 .ProgressBarText {
     position: absolute;
@@ -56,7 +57,7 @@
     left: 20%;
     transform: translate(-50%, -50%);
     font-family: sans-serif;
-    font-size: clamp(0.75rem, 2.5vw, 1.5rem);
+    font-size: clamp(0.2rem, 2.25vw, 1.5rem);
     color: black;
     text-align: left;
 }
@@ -146,8 +147,11 @@
     margin: 0 4px;          /* optional spacing between buttons */
 }
 .AnswerButton:hover {
-    background-color: var(--purple);
-    color: white;
+    background-color: none;
+}
+.AnswerButton:focus {
+    outline: none;
+    background-color: none;
 }
 .AnswerButton.active {
     background-color: #9ee5ff;
@@ -157,7 +161,7 @@
     color: black;
 }
 img {
-    user-select: none; 
+    user-select: none;
     pointer-events: none;
 }
 .buttonNewLine {
@@ -180,15 +184,18 @@ input[type="range"] {
 }
 /* Target Chrome, Safari, Opera, and Edge */
 input[type="range"]::-webkit-slider-thumb {
-    -webkit-appearance: none; 
+    -webkit-appearance: none;
     appearance: none;
-    height: 100px;  
-    aspect-ratio: 1/2;   
+    height: 100px;
+    aspect-ratio: 1/2;
     background-image: url('/src/assets/Desktop Asset/SVG/Slider_button_selected.svg');
     background-position: center 25px;
     background-size: contain;     /* Forces image to scale perfectly inside the width/height */
     background-repeat: no-repeat; /* Prevents repeating patterns */
-    cursor: pointer; 
+    cursor: pointer;
+    background-color: transparent;
+    border: 0px;
+    box-shadow: none;
 }
 input[type="range"]:active::-webkit-slider-thumb {
     cursor: grabbing;
@@ -199,23 +206,37 @@ input[type="range"]:active::-webkit-slider-thumb {
 input[type="range"]::-moz-range-thumb {
     -moz-appearance: none;
     appearance: none;
-    height: 100px;  
-    aspect-ratio: 1/2;   
+    height: 100px;
+    aspect-ratio: 1/2;
     background-image: url('/src/assets/Desktop Asset/SVG/Slider_button_selected.svg');
     background-position: center 25px;
     background-size: contain;     /* Forces image to scale perfectly inside the width/height */
     background-repeat: no-repeat; /* Prevents repeating patterns */
-    cursor: pointer; 
+    cursor: pointer;
+    border: 0px;
+    min-width: 55px;
+    background-color: transparent;
+    border: 0px;
+    box-shadow: none;
 }
 input[type="range"]:active::-moz-range-thumb {
     cursor: grabbing;
-    background-image: url('/src/assets/Desktop Asset/SVG/Slider_button_selected.svg');
+    background-image: url('/src/assets/Desktop Asset/SVG/Slider_button.svg');
 }
 
+.bottomBubbleContainer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none; /* Prevents the bubbles from blocking clicks on other elements */
+}
 .bottomBubbles {
-    width: 100%; 
+    width: 100%;
     background-size: cover;
-    position: absolute; 
+    position: absolute;
     left: 0;
     bottom: 0;
 }
@@ -246,24 +267,54 @@ input[type="range"]:active::-moz-range-thumb {
     right: -4dvw;
 }
 
+@media (hover: hover) {
+    .AnswerButton:hover {
+        background-color: var(--purple);
+        color: white;
+    }
+}
+
 @media (max-width: 1600px) {
     .buttonNewLine {
         display: block;
     }
 }
+@media (max-height: 400px) {
+    .AnimalIconContainer {
+        position: absolute;
+        top: 12.5dvh;
+        height: 15dvh;
+    }
+    .QuizFinlitLogo {
+        left: 25px;
+        height: 17.5dvh;
+    }
+    .QuestionsContainer {
+        height: 80dvh;
+    }
+    .bottomBubbles {
+        width: 110%;
+        left: -5%;
+    }
+    .QuestionText {
+        font-size: clamp(0.75rem, 2vh, 3rem);
+    }
+    .AnswerButton {
+        font-size: clamp(0.75rem, 1.25vh, 1.4rem);
+    }
+    .ProgressBarText {
+        font-size: clamp(0.65rem, 1.3vh, 1.5rem);
+    }
+}
+
 @media (orientation: portrait) {
     .QuizFinlitLogo {
         left: 25px;
         height: 15dvh;
     }
     .ProgressBarContainer {
-        position: absolute;
-        top: 0;
-        right: 5dvw;
         width: 45dvw;
         height: 12.5dvh;
-        border-radius: 0 0 40px 40px;
-        background-color: #8adffd;
     }
     .ProgressBarTrack {
         left: 15%;
@@ -308,12 +359,15 @@ input[type="range"]:active::-moz-range-thumb {
     }
     input[type="range"]::-webkit-slider-thumb {
         transform: rotate(180deg);
-        width: 55px;  
+        width: 55px;
         height: auto;
-        aspect-ratio: 1/1;   
+        aspect-ratio: 1/1;
         background-position: center center;
         background-image: url('/src/assets/Desktop Asset/PNG/Slider_button.png');
         /* background-image: url('/src/assets/Desktop Asset/SVG/Slider_button_selected.svg'); */
+        background-color: transparent;
+        border: 0px;
+        box-shadow: none;
     }
     input[type="range"]:active::-webkit-slider-thumb {
         transform: rotate(180deg);
@@ -321,11 +375,14 @@ input[type="range"]:active::-moz-range-thumb {
     /* Target Firefox */
     input[type="range"]::-moz-range-thumb {
         transform: rotate(180deg);
-        width: 55px;  
+        width: 55px;
         height: auto;
-        aspect-ratio: 1/1;   
+        aspect-ratio: 1/1;
         background-position: center center;
         background-image: url('/src/assets/Desktop Asset/PNG/Slider_button.png');
+        background-color: transparent;
+        border: 0px;
+        box-shadow: none;
     }
     input[type="range"]:active::-moz-range-thumb {
         transform: rotate(180deg);
